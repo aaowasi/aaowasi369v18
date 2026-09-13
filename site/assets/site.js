@@ -25,6 +25,8 @@ document.querySelectorAll('[data-history]').forEach(bar => {
   sync();
   window.addEventListener('pageshow', sync);
   window.addEventListener('popstate', sync);
+  window.addEventListener('hashchange', sync);
+  window.navigation?.addEventListener('currententrychange', sync);
 });
 
 // Progressive enhancement: content remains visible if JS or observation fails.
