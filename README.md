@@ -1,73 +1,68 @@
-# Md. Abdullah Al Owasi — Portfolio v19
+# GRC & AI Governance Engine
 
-A restrained, responsive Technology Risk / GRC / AI Governance portfolio. Built with plain HTML, CSS and JavaScript. No framework, build dependencies, paid APIs, analytics, database or server functions. Fonts are bundled locally with their license.
+An independent portfolio by **Md. Abdullah Al Owasi**. Inspect the path from a requirement to a technical test, evidence record and accountable decision.
 
-## Start here
+The public portal contains a modeled 15-risk register, ten project domains, a filterable risk heatmap, CCM snapshots and a local vendor-intake sandbox. The Python engine adds bounded GitHub evidence collection, IAM account-summary checks, local prompt screening and a stdio MCP server. OPA evaluates selected AI governance evidence assertions. OSCAL describes original operational controls.
 
-1. Extract the ZIP. Upload the **contents of this folder** to the root of your GitHub repository. Do not upload the unopened ZIP, and do not place the project inside another folder in the repository.
-2. Check that `package.json`, `index.html`, `assets/`, `work/`, `scripts/` and `.github/workflows/pages.yml` are at the repository root. Preserve the included `.github` directory.
-3. Choose one host below. The same repository can deploy to all three. You do not need to deploy to all three to have a working website.
-4. For a $0 setup, use a free provider subdomain and remain within that provider's free-plan limits. Buying a custom domain is optional and is not free hosting.
+## Run the portal
 
-| Host | Framework | Build command | Publish directory | Setup |
-| --- | --- | --- | --- | --- |
-| Cloudflare Pages | None | `npm run build` | `dist` | Import the GitHub repository as a **Pages** project |
-| Vercel | Other | `npm run build` | `dist` | Import the repository; `vercel.json` supplies settings |
-| GitHub Pages | GitHub Actions | Included workflow runs `npm run verify` | `dist` | Enable Pages with GitHub Actions, then run the included workflow |
-
-Use Node.js 22. No `npm install` is required locally because the project has no dependencies. If a host runs its default install step, there are no dependency packages to download.
-
-**Read [DEPLOYMENT.md](DEPLOYMENT.md) for the full, researched instructions and free-plan qualifications.**
-
-## Local preview
-
-Install Node.js 22 or later, then open a terminal in this folder:
+Node.js 22+ and Python 3.12 are required for these commands. The frontend has no package dependencies.
 
 ```bash
-npm run verify
-npm start
+npm run build
+npm run check
+python3 -m http.server 4173 --directory dist --bind 127.0.0.1
 ```
 
-Open `http://localhost:4173`. This is a local preview address, not your published website. Press Ctrl+C in the terminal to stop it. Run `npm run build` after changing source files, then refresh the preview.
+Open http://127.0.0.1:4173. Do not open `index.html` using `file://`; browsers restrict JSON fetches there.
 
-The included `dist/` is a ready-built static copy for inspection or Cloudflare Direct Upload. Git ignores this generated folder; normal Git deployments rebuild it from source. Do not edit `dist/` directly.
+## Run and verify the engine
 
-## What changed
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m unittest discover -s tests -v
+python scripts/validate_oscal.py
+python scripts/install_opa.py
+.tools/opa test policies -v
+.tools/opa eval --data policies --input fixtures/ai-system.json data.aao.ai.result
+python -m engine.ingest --mode demo
+python -m engine.mcp_client
+```
 
-- Five focused homepage sections and three navigation links.
-- One forest-green primary CTA: **Discuss a role**.
-- Accessible, keyboard-operated four-view sample, with all content readable without JavaScript.
-- Three local case walkthroughs and downloadable Markdown samples.
-- An index preserving the original portfolio's ten project themes and original document-folder links.
-- Corrected latest user-supplied LinkedIn/GitHub destinations.
-- Removed v17 canonical URLs, competing visualizations, automatic motion and external runtime dependencies.
-- Per-deployment canonical URLs and sitemap; repository-subdirectory support for GitHub Pages.
-- Real not-found page, no catch-all SPA rewrite, and provider-appropriate security configuration.
+On Windows, activate with `.venv\Scripts\Activate.ps1`. Use Docker for OPA: `docker compose run --rm opa test /policies -v`.
 
-## Edit content
+## Local suite
 
-| File | Purpose |
-| --- | --- |
-| `index.html` | Homepage copy, email and original résumé folder |
-| `work/index.html` | Project directory and original Drive folders |
-| `work/assurance/index.html` | Local assurance walkthrough |
-| `work/vendor-risk/index.html` | Local vendor-risk walkthrough |
-| `work/ai-governance/index.html` | Local AI-governance walkthrough |
-| `samples/*.md` | Downloadable versions of the local walkthroughs |
-| `assets/site.css` | Design tokens, responsive rules and print styles |
-| `assets/site.js` | Tabs and email-copy behavior |
-| `site.config.json` | Optional preferred public site URL |
-| `scripts/build.mjs` | Static build, metadata, sitemap and 404 generation |
+```bash
+docker compose up -d portal opa
+docker compose build mcp
+docker compose run --rm --no-deps -T mcp
+```
 
-The local walkthroughs are illustrative introductions derived from the supplied portfolio's themes; they are not copies of the external workbooks or proof of client delivery. Keep the scenario and limitation labels. When editing a walkthrough, update its matching Markdown download too.
+The portal binds to http://127.0.0.1:8080; OPA binds to http://127.0.0.1:8181. MCP uses stdio and exposes no network endpoint. Configure your MCP client's working directory to this repository when using `mcp.json`.
 
-## Contact and document links
+## What the results mean
 
-The current contact email is `abdullahalowasi369@gmail.com`. Update both visible text and mailto links if it changes. The current profiles are the user's latest supplied addresses:
+| Label | Meaning |
+|---|---|
+| Modeled | Historical scenario data imported from the supplied portfolio workbook |
+| Demo | Executed code against fixed fixtures; not a live cloud connection |
+| Live | An API collection was attempted; inspect each check's result and observation time |
+| Pass | The narrowly stated technical test passed |
+| Fail | The narrowly stated technical condition was not met |
+| Unknown | Missing, malformed or unavailable evidence prevents a conclusion |
+| Stale | Evidence is outside its freshness window |
 
-- LinkedIn: `https://www.linkedin.com/in/aaowasi/`
-- GitHub: `https://github.com/aaowasi`
+The repository does not claim SOC 2 assurance, ISO certification, legal compliance, observed client savings, enterprise-wide shadow-AI detection or a production service-level agreement. OPA checks declarations; it does not authenticate synthetic-content provenance. Historical vendor decisions are unverified model records.
 
-Profile pages and original Drive documents could not be independently retrieved in this environment. They are preserved as supplied references, not verified credentials. Folder links are labeled as folders. The original résumé itself was not supplied; no résumé or career credential has been fabricated. Local work samples are available even if a Drive folder cannot be opened.
+Read [the six-part execution guide](docs/EXECUTION-GUIDE.md), [the design prompt](docs/MASTER-DESIGN-PROMPT.md), [LinkedIn copy](docs/LINKEDIN.md), and [validation status](docs/VALIDATION.md). Every source file is included; no pseudocode replacement is required to run the supplied demonstration.
 
-See [VALIDATION.md](VALIDATION.md) for exactly what passed and what remains unverified.
+## Public deployment
+
+Use Cloudflare Pages with `npm run build` and output `dist`. GitHub Pages and Vercel configurations are included. The scheduled CCM workflow uploads sanitized reports; continuous Cloudflare publication requires the scoped deployment credentials described in the guide. No paid APIs or hosted database are required.
+
+## Evidence archive
+
+Historical files are excluded from `dist`. `archive/baseline-manifest.json` identifies duplicates and preserves hashes. Do not upload unreviewed personal or confidential source files to a public release. Enable GitHub immutable releases before publishing a reviewed evidence bundle; a tag alone is insufficient.

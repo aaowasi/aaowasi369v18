@@ -1,0 +1,21 @@
+{
+  "in_scope": true,
+  "provider": true,
+  "deployer": true,
+  "direct_interaction": true,
+  "synthetic_output": true,
+  "deepfake": false,
+  "public_interest_text": false,
+  "emotion_or_biometric": false,
+  "interaction_disclosed": true,
+  "machine_readable_marking": false,
+  "marking_effectiveness_tested": false,
+  "content_disclosed": true,
+  "subjects_informed": true,
+  "accessible_at_first_exposure": true,
+  "owner": "Portfolio AI governance owner",
+  "risk_assessment_ref": "AI-01",
+  "evaluation_ref": "",
+  "exception_claimed": false,
+  "applicability_reviewed": true
+}

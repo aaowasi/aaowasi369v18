@@ -1,0 +1,144 @@
+{
+  "tools": [
+    {
+      "name": "query_risks",
+      "title": null,
+      "description": "Read the portfolio risk register. All rows are modeled, not client telemetry.",
+      "inputSchema": {
+        "properties": {
+          "category": {
+            "default": "",
+            "title": "Category",
+            "type": "string"
+          },
+          "limit": {
+            "default": 20,
+            "title": "Limit",
+            "type": "integer"
+          }
+        },
+        "title": "query_risksArguments",
+        "type": "object"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "meta": null,
+      "execution": null
+    },
+    {
+      "name": "evaluate_vendor_security",
+      "title": null,
+      "description": "Evaluate structured intake; return a recommendation, never procurement approval.",
+      "inputSchema": {
+        "$defs": {
+          "VendorInput": {
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "maxLength": 120,
+                "minLength": 1,
+                "title": "Name",
+                "type": "string"
+              },
+              "critical_service": {
+                "title": "Critical Service",
+                "type": "boolean"
+              },
+              "personal_data": {
+                "title": "Personal Data",
+                "type": "boolean"
+              },
+              "dpa_signed": {
+                "title": "Dpa Signed",
+                "type": "boolean"
+              },
+              "subprocessors_authorized": {
+                "title": "Subprocessors Authorized",
+                "type": "boolean"
+              },
+              "training_opt_out": {
+                "title": "Training Opt Out",
+                "type": "boolean"
+              },
+              "security_evidence_date": {
+                "maxLength": 32,
+                "title": "Security Evidence Date",
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "critical_service",
+              "personal_data",
+              "dpa_signed",
+              "subprocessors_authorized",
+              "training_opt_out",
+              "security_evidence_date"
+            ],
+            "title": "VendorInput",
+            "type": "object"
+          }
+        },
+        "properties": {
+          "vendor": {
+            "$ref": "#/$defs/VendorInput"
+          }
+        },
+        "required": [
+          "vendor"
+        ],
+        "title": "evaluate_vendor_securityArguments",
+        "type": "object"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "meta": null,
+      "execution": null
+    },
+    {
+      "name": "screen_prompt",
+      "title": null,
+      "description": "Inspect supplied text locally; return counts only and never persist raw prompts.",
+      "inputSchema": {
+        "properties": {
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "approved_channel": {
+            "default": false,
+            "title": "Approved Channel",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "title": "screen_promptArguments",
+        "type": "object"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "meta": null,
+      "execution": null
+    },
+    {
+      "name": "query_control_results",
+      "title": null,
+      "description": "Read the most recent sanitized CCM snapshot with mode and observation timestamps.",
+      "inputSchema": {
+        "properties": {},
+        "title": "query_control_resultsArguments",
+        "type": "object"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "meta": null,
+      "execution": null
+    }
+  ]
+}

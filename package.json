@@ -1,16 +1,8 @@
 {
-  "name": "aaowasi-portfolio",
-  "version": "19.0.0",
+  "name": "grc-ai-governance-engine",
+  "version": "20.0.0",
   "private": true,
-  "description": "Static governance portfolio. No runtime or build dependencies.",
-  "scripts": {
-    "build": "node scripts/build.mjs",
-    "check": "node scripts/check.mjs",
-    "test": "node --test scripts/build.test.mjs",
-    "verify": "npm run build && npm run check && npm test",
-    "start": "node scripts/serve.mjs"
-  },
-  "engines": {
-    "node": ">=22"
-  }
+  "type": "module",
+  "scripts": {"build": "node scripts/build.mjs", "start": "python3 -m http.server 4173 --directory dist --bind 127.0.0.1", "check": "node scripts/check.mjs"},
+  "engines": {"node": ">=22"}
 }

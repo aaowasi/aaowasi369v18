@@ -1,0 +1,140 @@
+{
+  "mode": "historical_model",
+  "source": "GRC_AI_Governance_10_Project_Evidence_Workbook.xlsx",
+  "sheet": "P07_Shadow_AI",
+  "verified_operational_evidence": false,
+  "records": [
+    {
+      "Control ID": "SAI-01",
+      "Requirement": "Only approved enterprise AI services may receive Confidential or Restricted data.",
+      "Data Class": "Confidential/Restricted",
+      "Allowed Channel": "Approved enterprise tenant",
+      "Blocked Condition": "Consumer/personal/unknown AI provider",
+      "Technical Enforcement": "CASB/SWG block; SSO-only allowlist",
+      "Evidence": "Blocked upload events; SaaS discovery",
+      "Owner": "Security",
+      "Severity": "Critical"
+    },
+    {
+      "Control ID": "SAI-02",
+      "Requirement": "Restricted data is prohibited in prompts unless an approved use case explicitly permits it.",
+      "Data Class": "Restricted",
+      "Allowed Channel": "Approved workflow only",
+      "Blocked Condition": "Secrets, regulated identifiers, special-category data without approval",
+      "Technical Enforcement": "DLP classifiers; endpoint/browser controls",
+      "Evidence": "DLP incident log",
+      "Owner": "Security/Privacy",
+      "Severity": "Critical"
+    },
+    {
+      "Control ID": "SAI-03",
+      "Requirement": "Credentials, API keys and secrets are always prohibited in prompts.",
+      "Data Class": "Restricted",
+      "Allowed Channel": "None",
+      "Blocked Condition": "Detected token/key/secret",
+      "Technical Enforcement": "Secret detection; DLP",
+      "Evidence": "Secret-block events",
+      "Owner": "Security/Eng",
+      "Severity": "Critical"
+    },
+    {
+      "Control ID": "SAI-04",
+      "Requirement": "Source code may only be sent to approved coding assistants for approved repositories.",
+      "Data Class": "Confidential",
+      "Allowed Channel": "Enterprise coding assistant",
+      "Blocked Condition": "Consumer AI/unapproved repo",
+      "Technical Enforcement": "Repo policy; enterprise tenant; CASB",
+      "Evidence": "Usage report",
+      "Owner": "Eng/Security",
+      "Severity": "High"
+    },
+    {
+      "Control ID": "SAI-05",
+      "Requirement": "Personal data requires approved processor/DPA and retention path.",
+      "Data Class": "Confidential/Restricted",
+      "Allowed Channel": "Approved processor",
+      "Blocked Condition": "Vendor lacks DPA/retention evidence",
+      "Technical Enforcement": "Vendor allowlist; DLP; procurement gate",
+      "Evidence": "TPRM record",
+      "Owner": "Privacy/GRC",
+      "Severity": "High"
+    },
+    {
+      "Control ID": "SAI-06",
+      "Requirement": "Prompts/outputs used in material decisions must retain source and reviewer evidence.",
+      "Data Class": "Internal/Confidential",
+      "Allowed Channel": "Approved workflow",
+      "Blocked Condition": "Unlogged material decision",
+      "Technical Enforcement": "Workflow logging; approval field",
+      "Evidence": "Decision log",
+      "Owner": "Risk/Product",
+      "Severity": "High"
+    },
+    {
+      "Control ID": "SAI-07",
+      "Requirement": "AI output is never authoritative legal/financial/security/HR advice without qualified review.",
+      "Data Class": "All",
+      "Allowed Channel": "Approved + reviewer",
+      "Blocked Condition": "Autonomous material action",
+      "Technical Enforcement": "Approval gate",
+      "Evidence": "Sample review evidence",
+      "Owner": "Legal/Finance/HR/GRC",
+      "Severity": "High"
+    },
+    {
+      "Control ID": "SAI-08",
+      "Requirement": "Browser extensions/desktop AI agents require security review.",
+      "Data Class": "All",
+      "Allowed Channel": "Managed/approved extension",
+      "Blocked Condition": "Unapproved extension/agent",
+      "Technical Enforcement": "MDM/browser allowlist",
+      "Evidence": "Installed extension inventory",
+      "Owner": "IT/Security",
+      "Severity": "High"
+    },
+    {
+      "Control ID": "SAI-09",
+      "Requirement": "Meeting AI is prohibited in privileged/board/incident meetings unless specifically approved.",
+      "Data Class": "Restricted",
+      "Allowed Channel": "Approved tool + notice",
+      "Blocked Condition": "Protected meeting without approval",
+      "Technical Enforcement": "Calendar/bot allowlist",
+      "Evidence": "Bot join logs",
+      "Owner": "Legal/Security",
+      "Severity": "High"
+    },
+    {
+      "Control ID": "SAI-10",
+      "Requirement": "Sensitive prompt content is locally redacted before external submission where feasible.",
+      "Data Class": "Confidential/Restricted",
+      "Allowed Channel": "Approved gateway/redaction",
+      "Blocked Condition": "Direct submission of detected identifiers",
+      "Technical Enforcement": "Prompt gateway; local redaction/tokenization",
+      "Evidence": "Redaction stats",
+      "Owner": "Security/Platform",
+      "Severity": "High"
+    },
+    {
+      "Control ID": "SAI-11",
+      "Requirement": "Shadow-AI discoveries trigger triage, user notice and repeat-offender escalation.",
+      "Data Class": "All",
+      "Allowed Channel": "N/A",
+      "Blocked Condition": "Unapproved AI detected",
+      "Technical Enforcement": "CASB discovery; ticket automation",
+      "Evidence": "Discovery/ticket metrics",
+      "Owner": "Security/GRC",
+      "Severity": "Medium"
+    },
+    {
+      "Control ID": "SAI-12",
+      "Requirement": "Approved AI services are reviewed quarterly for contract/model/retention/region/subprocessor changes.",
+      "Data Class": "All",
+      "Allowed Channel": "Approved services",
+      "Blocked Condition": "Material provider change without review",
+      "Technical Enforcement": "TPRM/AI change register",
+      "Evidence": "Quarterly review evidence",
+      "Owner": "AI Gov/TPRM",
+      "Severity": "Medium"
+    }
+  ]
+}

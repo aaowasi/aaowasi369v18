@@ -1,0 +1,158 @@
+{
+  "catalog": {
+    "uuid": "a7eddfe5-54ea-5995-a2f3-664b5f30ba0c",
+    "metadata": {
+      "title": "AAO operational AI governance controls",
+      "last-modified": "2026-09-13T00:00:00Z",
+      "version": "1.0.0",
+      "oscal-version": "1.1.3",
+      "remarks": "Original local control catalog. Mappings are interpretive; this is not an official NIST or EU catalog and not a certification."
+    },
+    "controls": [
+      {
+        "id": "aao-govern-01",
+        "title": "AI ownership",
+        "props": [
+          {
+            "name": "framework-reference",
+            "value": "NIST AI RMF GOVERN"
+          }
+        ],
+        "parts": [
+          {
+            "name": "statement",
+            "prose": "Assign an accountable AI system owner."
+          }
+        ]
+      },
+      {
+        "id": "aao-map-01",
+        "title": "AI context",
+        "props": [
+          {
+            "name": "framework-reference",
+            "value": "NIST AI RMF MAP"
+          }
+        ],
+        "parts": [
+          {
+            "name": "statement",
+            "prose": "Document use case, stakeholders and risk assessment."
+          }
+        ]
+      },
+      {
+        "id": "aao-measure-01",
+        "title": "AI evaluation",
+        "props": [
+          {
+            "name": "framework-reference",
+            "value": "NIST AI RMF MEASURE"
+          }
+        ],
+        "parts": [
+          {
+            "name": "statement",
+            "prose": "Retain evaluation results and test limitations."
+          }
+        ]
+      },
+      {
+        "id": "aao-manage-01",
+        "title": "AI treatment",
+        "props": [
+          {
+            "name": "framework-reference",
+            "value": "NIST AI RMF MANAGE"
+          }
+        ],
+        "parts": [
+          {
+            "name": "statement",
+            "prose": "Record decisions, monitoring and retest triggers."
+          }
+        ]
+      },
+      {
+        "id": "aao-art50-1",
+        "title": "Interaction notice",
+        "props": [
+          {
+            "name": "framework-reference",
+            "value": "EU AI Act Article 50(1)"
+          }
+        ],
+        "parts": [
+          {
+            "name": "statement",
+            "prose": "Record and test direct-interaction disclosure where applicable."
+          }
+        ]
+      },
+      {
+        "id": "aao-art50-2",
+        "title": "Synthetic marking",
+        "props": [
+          {
+            "name": "framework-reference",
+            "value": "EU AI Act Article 50(2)"
+          }
+        ],
+        "parts": [
+          {
+            "name": "statement",
+            "prose": "Test machine-readable marking and its effectiveness."
+          }
+        ]
+      },
+      {
+        "id": "aao-art50-3",
+        "title": "Affected-person notice",
+        "props": [
+          {
+            "name": "framework-reference",
+            "value": "EU AI Act Article 50(3)"
+          }
+        ],
+        "parts": [
+          {
+            "name": "statement",
+            "prose": "Document notice for emotion recognition or biometric categorization."
+          }
+        ]
+      },
+      {
+        "id": "aao-art50-4",
+        "title": "Content disclosure",
+        "props": [
+          {
+            "name": "framework-reference",
+            "value": "EU AI Act Article 50(4)"
+          }
+        ],
+        "parts": [
+          {
+            "name": "statement",
+            "prose": "Document applicable deepfake and public-interest text disclosure."
+          }
+        ]
+      },
+      {
+        "id": "aao-art50-5",
+        "title": "Notice accessibility",
+        "props": [
+          {
+            "name": "framework-reference",
+            "value": "EU AI Act Article 50(5)"
+          }
+        ],
+        "parts": [
+          {
+            "name": "statement",
+            "prose": "Test timing, accessibility and clarity at first interaction or exposure."
+          }
+        ]
+      }
+    ]
+  }
+}

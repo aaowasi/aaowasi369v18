@@ -1,0 +1,158 @@
+{
+  "mode": "historical_model",
+  "source": "GRC_AI_Governance_10_Project_Evidence_Workbook.xlsx",
+  "sheet": "P01_Trust_Readiness",
+  "verified_operational_evidence": false,
+  "records": [
+    {
+      "Area": "Security governance",
+      "Buyer Question": "Who owns the security program and how is it reviewed?",
+      "Finding Type": "Internal verification required",
+      "Required Evidence": "Approved security policy; role charter; governance minutes",
+      "Framework": "SOC 2 CC1-CC3; ISO 27001 clauses 5-7",
+      "Priority": "High",
+      "Owner": "CISO/GRC",
+      "Status": "Open"
+    },
+    {
+      "Area": "Access control",
+      "Buyer Question": "How are privileged/customer admin roles controlled?",
+      "Finding Type": "Internal verification required",
+      "Required Evidence": "RBAC matrix; MFA config; quarterly access review",
+      "Framework": "SOC 2 CC6; ISO 27001 access control",
+      "Priority": "High",
+      "Owner": "IT/Security",
+      "Status": "Open"
+    },
+    {
+      "Area": "Encryption",
+      "Buyer Question": "Is customer data encrypted in transit and at rest?",
+      "Finding Type": "Internal verification required",
+      "Required Evidence": "TLS/storage/KMS evidence; exception register",
+      "Framework": "SOC 2 CC6; ISO 27001 cryptography",
+      "Priority": "High",
+      "Owner": "Security/Platform",
+      "Status": "Open"
+    },
+    {
+      "Area": "Logging",
+      "Buyer Question": "Are security-relevant events centrally logged and retained?",
+      "Finding Type": "Internal verification required",
+      "Required Evidence": "Log-source inventory; SIEM retention; alert rules",
+      "Framework": "SOC 2 CC7; ISO 27001 logging",
+      "Priority": "High",
+      "Owner": "Security",
+      "Status": "Open"
+    },
+    {
+      "Area": "Incident response",
+      "Buyer Question": "How are incidents classified, escalated and notified?",
+      "Finding Type": "Internal verification required",
+      "Required Evidence": "IR plan; severity matrix; exercise report",
+      "Framework": "SOC 2 CC7; ISO 27001 incident mgmt",
+      "Priority": "High",
+      "Owner": "Security/Legal",
+      "Status": "Open"
+    },
+    {
+      "Area": "Business continuity",
+      "Buyer Question": "Can critical service recover within approved objectives?",
+      "Finding Type": "Internal verification required",
+      "Required Evidence": "BCP/DR; RTO/RPO; restore/failover test",
+      "Framework": "SOC 2 Availability; ISO 27001 ICT readiness",
+      "Priority": "Medium",
+      "Owner": "Engineering/Ops",
+      "Status": "Open"
+    },
+    {
+      "Area": "Privacy roles",
+      "Buyer Question": "When is the company controller vs processor?",
+      "Finding Type": "Internal verification required",
+      "Required Evidence": "DPA; processing role matrix; privacy notice",
+      "Framework": "GDPR Art. 28",
+      "Priority": "High",
+      "Owner": "Privacy/Legal",
+      "Status": "Open"
+    },
+    {
+      "Area": "Subprocessors",
+      "Buyer Question": "Which downstream processors receive customer data?",
+      "Finding Type": "Internal verification required",
+      "Required Evidence": "Named subprocessor register; DPA/SCC; change notice",
+      "Framework": "GDPR Art. 28(2)-(4)",
+      "Priority": "High",
+      "Owner": "Privacy/GRC",
+      "Status": "Open"
+    },
+    {
+      "Area": "Retention",
+      "Buyer Question": "How long are customer content, logs and backups retained?",
+      "Finding Type": "Internal verification required",
+      "Required Evidence": "Object-level retention schedule; deletion SLA",
+      "Framework": "GDPR storage limitation; SOC 2 confidentiality",
+      "Priority": "High",
+      "Owner": "Privacy/Engineering",
+      "Status": "Open"
+    },
+    {
+      "Area": "AI training",
+      "Buyer Question": "Is customer data used for generalized model training?",
+      "Finding Type": "Internal verification required",
+      "Required Evidence": "AI data-use statement; provider terms; opt-in controls",
+      "Framework": "NIST AI RMF; GDPR purpose limitation",
+      "Priority": "High",
+      "Owner": "AI/Legal",
+      "Status": "Open"
+    },
+    {
+      "Area": "AI providers",
+      "Buyer Question": "Which model providers process customer prompts/content?",
+      "Finding Type": "Internal verification required",
+      "Required Evidence": "Provider register; retention/training terms; region",
+      "Framework": "NIST AI RMF; GDPR Art. 28",
+      "Priority": "High",
+      "Owner": "AI/TPRM",
+      "Status": "Open"
+    },
+    {
+      "Area": "AI oversight",
+      "Buyer Question": "Where is human review required before material action?",
+      "Finding Type": "Internal verification required",
+      "Required Evidence": "Use-case register; approval gates; audit trail",
+      "Framework": "NIST AI RMF GOVERN/MAP",
+      "Priority": "Medium",
+      "Owner": "Product/Risk",
+      "Status": "Open"
+    },
+    {
+      "Area": "Assurance",
+      "Buyer Question": "What exact SOC 2/ISO evidence is available?",
+      "Finding Type": "Internal verification required",
+      "Required Evidence": "SOC report scope/period; ISO certificate scope/validity",
+      "Framework": "AICPA TSC; ISO 27001",
+      "Priority": "High",
+      "Owner": "GRC",
+      "Status": "Open"
+    },
+    {
+      "Area": "EU AI transparency",
+      "Buyer Question": "Which Article 50 duties apply to EU-facing AI features?",
+      "Finding Type": "Internal verification required",
+      "Required Evidence": "Applicability register; disclosure/marking evidence",
+      "Framework": "EU AI Act Art. 50",
+      "Priority": "Medium",
+      "Owner": "Legal/AI Governance",
+      "Status": "Open"
+    },
+    {
+      "Area": "Customer assurance",
+      "Buyer Question": "Can sales answer recurring trust questions with current evidence?",
+      "Finding Type": "Internal verification required",
+      "Required Evidence": "Approved answer library; evidence links; review dates",
+      "Framework": "SOC 2 / ISO governance",
+      "Priority": "Medium",
+      "Owner": "GRC/Sales Eng",
+      "Status": "Open"
+    }
+  ]
+}

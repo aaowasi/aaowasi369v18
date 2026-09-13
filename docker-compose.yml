@@ -1,0 +1,29 @@
+name: aao-governance
+services:
+  portal:
+    image: nginxinc/nginx-unprivileged:1.28-alpine
+    ports: ["127.0.0.1:8080:8080"]
+    volumes: ["./site:/usr/share/nginx/html:ro"]
+    read_only: true
+    tmpfs: ["/tmp"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+    restart: unless-stopped
+  opa:
+    image: openpolicyagent/opa:1.20.2-static
+    command: ["run", "--server", "--addr=0.0.0.0:8181", "/policies"]
+    ports: ["127.0.0.1:8181:8181"]
+    volumes: ["./policies:/policies:ro"]
+    read_only: true
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+    restart: unless-stopped
+  mcp:
+    build: .
+    profiles: ["mcp"]
+    stdin_open: true
+    read_only: true
+    tmpfs: ["/tmp"]
+    security_opt: ["no-new-privileges:true"]
+    cap_drop: ["ALL"]
+    network_mode: none

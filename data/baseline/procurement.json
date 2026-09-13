@@ -1,0 +1,208 @@
+{
+  "mode": "historical_model",
+  "source": "GRC_AI_Governance_10_Project_Evidence_Workbook.xlsx",
+  "sheet": "P08_Procurement_QA",
+  "verified_operational_evidence": false,
+  "records": [
+    {
+      "Q#": 1,
+      "Buyer Question": "Do you maintain a formal information security program?",
+      "Standardized Response": "The reference control model defines accountable security governance, approved policies, management review, enterprise risk management, control ownership and recurring evidence review. Production claims must be supported by current approved records.",
+      "Evidence": "Security Governance Policy; governance minutes; org chart",
+      "Owner": "GRC/CISO",
+      "Framework": "SOC 2 CC1-CC3; ISO 27001 clauses 5-7"
+    },
+    {
+      "Q#": 2,
+      "Buyer Question": "Are you SOC 2 Type II certified/compliant?",
+      "Standardized Response": "Use exact assurance language only. State the current report type, period and scope if an examination exists; otherwise describe designed/aligned controls without implying an issued SOC 2 report.",
+      "Evidence": "Current SOC 2 report or audit roadmap",
+      "Owner": "GRC",
+      "Framework": "AICPA TSC"
+    },
+    {
+      "Q#": 3,
+      "Buyer Question": "Are you ISO 27001 certified?",
+      "Standardized Response": "If certified, provide certificate scope, certification body and validity. If not, state alignment/implementation status without using 'certified'.",
+      "Evidence": "ISO certificate or ISMS roadmap",
+      "Owner": "GRC",
+      "Framework": "ISO/IEC 27001:2022"
+    },
+    {
+      "Q#": 4,
+      "Buyer Question": "How is customer data encrypted?",
+      "Standardized Response": "Customer data is encrypted in transit using approved TLS and at rest using platform/cloud encryption; key ownership, exceptions and customer-managed-key options are documented per system.",
+      "Evidence": "Architecture; KMS config; cryptography standard",
+      "Owner": "Security/Platform",
+      "Framework": "SOC 2 CC6; ISO 27001"
+    },
+    {
+      "Q#": 5,
+      "Buyer Question": "How do you control privileged access?",
+      "Standardized Response": "Privileged access is individually attributable, least-privilege, MFA-protected, approved, logged and periodically reviewed.",
+      "Evidence": "PAM/admin roster; access review; MFA",
+      "Owner": "Security/IT",
+      "Framework": "SOC 2 CC6"
+    },
+    {
+      "Q#": 6,
+      "Buyer Question": "Do you support SSO and MFA?",
+      "Standardized Response": "Enterprise authentication uses SSO where supported and MFA is mandatory for privileged and remote administrative access; product capability is stated per plan.",
+      "Evidence": "IdP config; product docs",
+      "Owner": "IT/Product",
+      "Framework": "SOC 2 CC6"
+    },
+    {
+      "Q#": 7,
+      "Buyer Question": "How are vulnerabilities managed?",
+      "Standardized Response": "Vulnerabilities are identified through automated scanning/testing, risk-rated, assigned remediation SLAs, tracked to closure and escalated when overdue; exceptions require approval.",
+      "Evidence": "Vulnerability policy; scanner dashboard; tickets",
+      "Owner": "Security/Eng",
+      "Framework": "SOC 2 CC7"
+    },
+    {
+      "Q#": 8,
+      "Buyer Question": "Do you perform penetration tests?",
+      "Standardized Response": "Independent penetration testing is performed on a risk-based cadence and after major changes where warranted; only current approved summaries are shared externally.",
+      "Evidence": "Pen-test executive summary",
+      "Owner": "Security",
+      "Framework": "SOC 2 CC7; ISO 27001"
+    },
+    {
+      "Q#": 9,
+      "Buyer Question": "How do you respond to incidents?",
+      "Standardized Response": "An approved incident process defines severity, roles, triage, containment, investigation, evidence handling, communications and lessons learned; notification follows contract/law.",
+      "Evidence": "IR plan; exercise report",
+      "Owner": "Security/Legal",
+      "Framework": "SOC 2 CC7; ISO 27001"
+    },
+    {
+      "Q#": 10,
+      "Buyer Question": "What are your disaster-recovery controls?",
+      "Standardized Response": "Critical systems have recovery objectives, encrypted backups and tested restore/failover procedures with periodic recovery evidence.",
+      "Evidence": "BCP/DR; restore test; RTO/RPO",
+      "Owner": "Eng/Ops",
+      "Framework": "SOC 2 Availability"
+    },
+    {
+      "Q#": 11,
+      "Buyer Question": "Which subprocessors process customer data?",
+      "Standardized Response": "A maintained register identifies provider, service, location and purpose; new subprocessors follow the authorization/change process in the DPA.",
+      "Evidence": "Subprocessor list; DPA",
+      "Owner": "Privacy/GRC",
+      "Framework": "GDPR Art. 28"
+    },
+    {
+      "Q#": 12,
+      "Buyer Question": "How do you notify customers of subprocessor changes?",
+      "Standardized Response": "Under general authorization, customers receive advance notice of intended additions/replacements and an opportunity to object under the applicable DPA process.",
+      "Evidence": "DPA clause; notice procedure",
+      "Owner": "Privacy/Legal",
+      "Framework": "GDPR Art. 28(2)"
+    },
+    {
+      "Q#": 13,
+      "Buyer Question": "Do you use customer data to train AI models?",
+      "Standardized Response": "The approved AI data-use statement distinguishes inference, evaluation, tenant-specific personalization, product improvement and generalized training; the answer states the actual default/opt-in configuration.",
+      "Evidence": "AI data-use policy; provider terms",
+      "Owner": "AI Gov/Legal",
+      "Framework": "NIST AI RMF; GDPR purpose limitation"
+    },
+    {
+      "Q#": 14,
+      "Buyer Question": "Which AI providers receive customer data?",
+      "Standardized Response": "The AI provider register identifies each model/provider, purpose, data categories, region, retention, training behavior and approved use cases.",
+      "Evidence": "AI provider register; TPRM evidence",
+      "Owner": "AI Gov/TPRM",
+      "Framework": "NIST AI RMF; GDPR Art. 28"
+    },
+    {
+      "Q#": 15,
+      "Buyer Question": "How long do you retain customer data?",
+      "Standardized Response": "Retention is defined by data object and purpose; the schedule covers customer content, prompts/outputs, logs, backups, billing records and legal-hold exceptions.",
+      "Evidence": "Retention schedule",
+      "Owner": "Privacy/Eng",
+      "Framework": "GDPR storage limitation"
+    },
+    {
+      "Q#": 16,
+      "Buyer Question": "Can customers delete/export data?",
+      "Standardized Response": "The offboarding process supports committed export/return and deletion, including documented backup purge timing and legal-retention exceptions.",
+      "Evidence": "Deletion/offboarding SOP",
+      "Owner": "Privacy/Support",
+      "Framework": "GDPR Art. 28(3)(g)"
+    },
+    {
+      "Q#": 17,
+      "Buyer Question": "How do you support data-subject rights?",
+      "Standardized Response": "Where acting as processor, the organization supports the controller through documented technical/organizational measures and routes requests under the DPA/privacy process.",
+      "Evidence": "DPA; DSR procedure",
+      "Owner": "Privacy",
+      "Framework": "GDPR Art. 28(3)(e)"
+    },
+    {
+      "Q#": 18,
+      "Buyer Question": "Where is customer data hosted?",
+      "Standardized Response": "Hosting/processing regions are documented per product/deployment; residency statements distinguish primary content from telemetry, support data and subprocessors.",
+      "Evidence": "Region matrix; architecture",
+      "Owner": "Platform/Privacy",
+      "Framework": "GDPR transfers"
+    },
+    {
+      "Q#": 19,
+      "Buyer Question": "How do you monitor third-party risk?",
+      "Standardized Response": "Vendors are tiered by data access, criticality and regulatory impact before onboarding and reassessed on a risk-based cadence; findings are tracked to treatment.",
+      "Evidence": "TPRM policy; vendor register",
+      "Owner": "GRC/Procurement",
+      "Framework": "SOC 2 CC9"
+    },
+    {
+      "Q#": 20,
+      "Buyer Question": "How do you manage secure software changes?",
+      "Standardized Response": "Code changes require review, automated security testing and controlled deployment; secrets/dependency/vulnerability scanning operates in CI/CD.",
+      "Evidence": "Secure SDLC; CI evidence",
+      "Owner": "Engineering",
+      "Framework": "SOC 2 CC8"
+    },
+    {
+      "Q#": 21,
+      "Buyer Question": "Do you log customer/admin activity?",
+      "Standardized Response": "Security-relevant events are centrally logged with defined retention/access controls; customer-facing audit-log capability is stated separately from internal security logging.",
+      "Evidence": "Logging standard; SIEM coverage",
+      "Owner": "Security/Product",
+      "Framework": "SOC 2 CC7"
+    },
+    {
+      "Q#": 22,
+      "Buyer Question": "How do you govern AI risk?",
+      "Standardized Response": "AI systems are inventoried, assigned accountable owners, assessed for use/context/stakeholder risk, evaluated before/after release and monitored with escalation/retirement criteria.",
+      "Evidence": "AI policy; inventory; risk register",
+      "Owner": "AI Governance",
+      "Framework": "NIST AI RMF; ISO 42001"
+    },
+    {
+      "Q#": 23,
+      "Buyer Question": "How do you address EU AI Act Article 50?",
+      "Standardized Response": "Each EU-facing interactive/generative use case is assessed for provider/deployer role and specific duties; applicable disclosure, labelling/marking and evidence are implemented.",
+      "Evidence": "Article 50 register; UI/provenance evidence",
+      "Owner": "Legal/AI Gov",
+      "Framework": "EU AI Act Art. 50"
+    },
+    {
+      "Q#": 24,
+      "Buyer Question": "How do you handle security exceptions?",
+      "Standardized Response": "Exceptions require business justification, risk assessment, compensating controls, expiry date and designated risk-owner approval; expired exceptions are escalated.",
+      "Evidence": "Exception register",
+      "Owner": "GRC/CISO",
+      "Framework": "SOC 2 CC3/CC4"
+    },
+    {
+      "Q#": 25,
+      "Buyer Question": "How do you keep questionnaire answers accurate?",
+      "Standardized Response": "A controlled assurance library gives every answer an owner, evidence source and review/expiry date; material architecture, vendor or assurance changes trigger out-of-cycle review.",
+      "Evidence": "Answer library; change log",
+      "Owner": "GRC/Sales Eng",
+      "Framework": "SOC 2/ISO documented information"
+    }
+  ]
+}
