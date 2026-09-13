@@ -1,0 +1,4 @@
+[
+  {"number": 1, "state": "open", "security_advisory": {"severity": "high"}},
+  {"number": 2, "state": "open", "security_advisory": {"severity": "low"}}
+]

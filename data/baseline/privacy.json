@@ -1,0 +1,104 @@
+{
+  "mode": "historical_model",
+  "source": "GRC_AI_Governance_10_Project_Evidence_Workbook.xlsx",
+  "sheet": "P09_Article28",
+  "verified_operational_evidence": false,
+  "records": [
+    {
+      "Clause ID": "DPA-01",
+      "Requirement": "Processing details",
+      "Production-Ready Clause Summary": "The processing schedule states subject matter, duration, nature/purpose, personal-data types, data-subject categories and controller rights/obligations.",
+      "Operational Evidence": "Signed processing schedule; data-flow inventory",
+      "Owner": "Privacy/Legal",
+      "Status": "Ready"
+    },
+    {
+      "Clause ID": "DPA-02",
+      "Requirement": "Documented instructions",
+      "Production-Ready Clause Summary": "The processor processes personal data only on documented controller instructions, including transfers, unless legally required otherwise; where permitted, the controller is informed.",
+      "Operational Evidence": "DPA clause; instruction channel",
+      "Owner": "Privacy/Legal",
+      "Status": "Ready"
+    },
+    {
+      "Clause ID": "DPA-03",
+      "Requirement": "Confidentiality",
+      "Production-Ready Clause Summary": "All personnel authorized to process personal data are bound by appropriate confidentiality obligations.",
+      "Operational Evidence": "Employment/contract confidentiality; training",
+      "Owner": "HR/Legal",
+      "Status": "Ready"
+    },
+    {
+      "Clause ID": "DPA-04",
+      "Requirement": "Security measures",
+      "Production-Ready Clause Summary": "The processor implements appropriate technical/organizational measures proportionate to risk and maintains a security schedule describing controls.",
+      "Operational Evidence": "Security schedule; SOC/ISO; control matrix",
+      "Owner": "Security/GRC",
+      "Status": "Ready"
+    },
+    {
+      "Clause ID": "DPA-05",
+      "Requirement": "Subprocessor authorization",
+      "Production-Ready Clause Summary": "Subprocessors are appointed only under specific/general written authorization; general authorization includes notice of intended changes and an objection mechanism.",
+      "Operational Evidence": "DPA clause; notice log; register",
+      "Owner": "Privacy/GRC",
+      "Status": "Ready"
+    },
+    {
+      "Clause ID": "DPA-06",
+      "Requirement": "Flow-down obligations",
+      "Production-Ready Clause Summary": "Each subprocessor receives written terms providing an equivalent level of protection for applicable Article 28 obligations; the primary processor remains accountable.",
+      "Operational Evidence": "Subprocessor DPA/SCC; contract review",
+      "Owner": "Legal/Procurement",
+      "Status": "Ready"
+    },
+    {
+      "Clause ID": "DPA-07",
+      "Requirement": "Data-subject rights",
+      "Production-Ready Clause Summary": "The processor provides appropriate technical/organizational assistance for controller responses to applicable rights requests.",
+      "Operational Evidence": "DSR SOP; tickets",
+      "Owner": "Privacy/Support",
+      "Status": "Ready"
+    },
+    {
+      "Clause ID": "DPA-08",
+      "Requirement": "Security/breach assistance",
+      "Production-Ready Clause Summary": "The processor assists the controller with security obligations, breach assessment/notification and information reasonably required for incident response.",
+      "Operational Evidence": "IR/DPA clause; notification workflow",
+      "Owner": "Security/Legal",
+      "Status": "Ready"
+    },
+    {
+      "Clause ID": "DPA-09",
+      "Requirement": "DPIA/regulator assistance",
+      "Production-Ready Clause Summary": "The processor provides reasonable information/assistance for DPIAs and supervisory-authority consultation based on processing and available information.",
+      "Operational Evidence": "Privacy risk assessment; DPA clause",
+      "Owner": "Privacy",
+      "Status": "Ready"
+    },
+    {
+      "Clause ID": "DPA-10",
+      "Requirement": "Return/deletion",
+      "Production-Ready Clause Summary": "At controller choice and subject to law, the processor returns or deletes personal data at service end and deletes remaining copies under the offboarding schedule.",
+      "Operational Evidence": "Deletion certificate; backup purge",
+      "Owner": "Engineering/Privacy",
+      "Status": "Ready"
+    },
+    {
+      "Clause ID": "DPA-11",
+      "Requirement": "Audit/information rights",
+      "Production-Ready Clause Summary": "The processor makes information reasonably necessary to demonstrate Article 28 obligations available and supports proportionate audits/inspections with safeguards.",
+      "Operational Evidence": "Trust center/SOC; audit clause; request log",
+      "Owner": "GRC/Legal",
+      "Status": "Ready"
+    },
+    {
+      "Clause ID": "DPA-12",
+      "Requirement": "International transfers",
+      "Production-Ready Clause Summary": "Transfers outside approved jurisdictions use documented lawful transfer mechanisms and supplementary measures where required.",
+      "Operational Evidence": "SCC/transfer impact; region map",
+      "Owner": "Privacy/Legal",
+      "Status": "Ready"
+    }
+  ]
+}

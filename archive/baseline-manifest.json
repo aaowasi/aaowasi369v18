@@ -1,0 +1,354 @@
+{
+  "created": "2026-09-13",
+  "publication_status": "not_published",
+  "files": [
+    {
+      "file": "proof/GRC Proof-of-Work/Presentation /Md_Abdullah_Al_Owasi_Presentation.pptx",
+      "sha256": "99f156938b2a18a3bab9cb900a25a5aba8e4b429e6230bca78983d54b3c154c5",
+      "bytes": 182586,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Governance evidence workbook/Governance_Evidence_Workbook.xlsm",
+      "sha256": "2349b1ffe9628a18034dc00c5e64652fdaaa6435b3b7a2d7b74cd0d23791aff5",
+      "bytes": 166570,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/GRC_AI_Governance_Production_Portfolio_Binder.pdf",
+      "sha256": "eeac77a944d5d99bcb00c2df80aa8146339a145ea96979223961eb6300e7313a",
+      "bytes": 547527,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/GRC_AI_Governance_Production_Portfolio_Binder.docx",
+      "sha256": "3ab51f8e2d7a8ce79a0c794ce0623be37096f1c10174d94e0873c868d04804a8",
+      "bytes": 47757,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/GRC_AI_Governance_10_Project_Evidence_Workbook.xlsx",
+      "sha256": "ae039b2c398587912421c5f1d84cfcaf2b78a4040bba0f6bf0f01a1c53c28af1",
+      "bytes": 47400,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Governance evidence matrix/Governance_Evidence_Matrix.xlsx",
+      "sha256": "409edce7aef27fa720fd4eced267bf4399efa62d7bde65200e32f3a5d59fe51f",
+      "bytes": 328666,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Resume/MD_Abdullah_Al_Owasi_Resume-v3.pdf",
+      "sha256": "c254fa7c8378b54607b508dcaffcdbe1935aaefed334e5c07cbc905c09225251",
+      "bytes": 268737,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio/Md_Abdullah_Al_Owasi_Portfolio.docx",
+      "sha256": "8cb686046cf966391368aa1d286964fb6e038695d1d28f681997467d6a0d1f3c",
+      "bytes": 633623,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Executive Portfolio/Md_Abdullah_Al_Owasi_Executive_Portfolio.docx",
+      "sha256": "12b9d151335b75fbe346ff0538babbb253265092637f0f903a7b735a480a906a",
+      "bytes": 577294,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 8_ Enterprise Security Questionnaire & Procurement Triage Automation/P08_Procurement_QA.xlsx",
+      "sha256": "07b1acf6ca371641a4a4b8c6d2d68f71c73b51af2d63c74c0fc4ec9e9aeeee9c",
+      "bytes": 13743,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 8_ Enterprise Security Questionnaire & Procurement Triage Automation/08_Procurement_Security_Triage.pdf",
+      "sha256": "ad6f84384c7bf0340618190a6343b2dbf3d528d8ae46926ed4b078c4d0003833",
+      "bytes": 132634,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 10_ Continuous Control Monitoring, Audit Operations & Remediation System/P10_Audit_Ops.pdf",
+      "sha256": "ab8a25178efa584e9c82e6825a8c4ae3a4355b130f45ea7f51a21c84cc3d08a7",
+      "bytes": 119611,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 10_ Continuous Control Monitoring, Audit Operations & Remediation System/10_Continuous_Audit_Operations.md",
+      "sha256": "d59f636f87e2d76511b73f62d20a3507512f12d11b617389a9126b4a77948689",
+      "bytes": 2988,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 10_ Continuous Control Monitoring, Audit Operations & Remediation System/10_Continuous_Audit_Operations.pdf",
+      "sha256": "4e1deab44c84c794d6a9058acc3215d4d86b1048623ed64318aa15a41d2303ee",
+      "bytes": 115844,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 10_ Continuous Control Monitoring, Audit Operations & Remediation System/P10_Audit_Ops.xlsx",
+      "sha256": "ec729adba75fa0f564c5b9924f3da2145ea050ab2f5e8d51c9d9984b9e5a1c5a",
+      "bytes": 11538,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 7_ Enterprise Shadow AI, Prompt DLP & AI Data-Egress Governance/07_Shadow_AI_Prompt_DLP.pdf",
+      "sha256": "9cf7de1e0ee588c987f42f34ce2e458bc9b8e79e4dedebfdeff171e6bd159b3a",
+      "bytes": 141816,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 7_ Enterprise Shadow AI, Prompt DLP & AI Data-Egress Governance/P07_Shadow_AI.xlsx",
+      "sha256": "b7e0f3cccc515e2a81d9a7a8b496acc283a41672d46a7e4852522285242cf023",
+      "bytes": 11693,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 6_ EU AI Act Article 50 Transparency & Synthetic Content Governance System/06_AI_Transparency_Article50.pdf",
+      "sha256": "7dca4b735dd08c6accf7a853c37aeec2dccb2d098bb7012d7e44c4b691237539",
+      "bytes": 101457,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 6_ EU AI Act Article 50 Transparency & Synthetic Content Governance System/P06_AI_Transparency.xlsx",
+      "sha256": "57f1dc1a1100f3bf49d66cd95113054758c7b2fab58313e94f12da6cd1da18ae",
+      "bytes": 12088,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 4_ SOC 2 + ISO-IEC 27001 Control-to-Evidence & Audit Readiness System/P04_Control_Evidence.xlsx",
+      "sha256": "d0754387b952e36a398f68ec7a5782513d54a531f0ca67e8741f924975be7fc0",
+      "bytes": 12255,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 4_ SOC 2 + ISO-IEC 27001 Control-to-Evidence & Audit Readiness System/04_SOC2_ISO27001_Control_Evidence.pdf",
+      "sha256": "094fd7db14b4e6945512c53f467fdbbab15ab49c9f08f55e423c6771adce5607",
+      "bytes": 130516,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 3_ Enterprise Third-Party Risk & AI Subprocessor Decision Engine _ TPRM \u00b7 Vendor Risk \u00b7 GDPR Article 28/P03_Vendor_Questions.xlsx",
+      "sha256": "dd7e9819fd504d512411f22f19f5c0ab5479184ca31bbe9dfc39bceaf73e5378",
+      "bytes": 11413,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 3_ Enterprise Third-Party Risk & AI Subprocessor Decision Engine _ TPRM \u00b7 Vendor Risk \u00b7 GDPR Article 28/03_TPRM_AI_Subprocessor_Engine.pdf",
+      "sha256": "78f507dd2c16620d3c9620027767f3b24505acf06ae8c4d31cd9e2c609453310",
+      "bytes": 110705,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 3_ Enterprise Third-Party Risk & AI Subprocessor Decision Engine _ TPRM \u00b7 Vendor Risk \u00b7 GDPR Article 28/P03_TPRM.xlsx",
+      "sha256": "4d9d922912fd1531f02f328a7fb86bc474ae71b2a30ae7b7701b92e92212d5cb",
+      "bytes": 12345,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 5_ Executive Technology Risk, KRI & Board Decision System/05_Executive_Technology_Risk.pdf",
+      "sha256": "f9e7191f9c13f9ce705e2eebbd5160d9f44960adbffc61468f61616c41a3f260",
+      "bytes": 103011,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 5_ Executive Technology Risk, KRI & Board Decision System/P05_Executive_Risk.xlsx",
+      "sha256": "3eaafcfa3885e02d1f08d618b9029d5fa6ac8df32b2d6f289fa235c6878ab966",
+      "bytes": 16164,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 1_ Enterprise Trust & Customer Assurance Architecture _ SOC 2 \u00b7 ISO 27001 \u00b7 GDPR \u00b7 AI Governance/P01_Trust_Readiness.xlsx",
+      "sha256": "91ed5ffda8be5fb7e62d16495d4a2acc966deed97667898d7a1df2d7407f6f38",
+      "bytes": 11670,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 1_ Enterprise Trust & Customer Assurance Architecture _ SOC 2 \u00b7 ISO 27001 \u00b7 GDPR \u00b7 AI Governance/01_Enterprise_Trust_Customer_Assurance.pdf",
+      "sha256": "4f289103d60e5c462a54436ae711e7e800c202476c3b4c34654c2468eb51109d",
+      "bytes": 221496,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 9_ GDPR Article 28 DPA & Subprocessor Governance Engine/09_GDPR_Article28_DPA_Engine.pdf",
+      "sha256": "3d01ae3fe374b80fbe6fb9292e301cdb0f46c691fe15ea88038db37870ad4cd0",
+      "bytes": 108107,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 9_ GDPR Article 28 DPA & Subprocessor Governance Engine/P09_Article28.xlsx",
+      "sha256": "97060256de04f40cf2f44186d8794cf153f9fb453108c4133e48dfe96f188d6b",
+      "bytes": 11475,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 2_ AI Governance Operating System _ NIST AI RMF \u00b7 ISO-IEC 42001 \u00b7 Generative AI Governance/02_AI_Governance_Operating_System.pdf",
+      "sha256": "92ba5361c83275a9622050140bccc72786b0ddd46efac98fca26b1ee6df7658c",
+      "bytes": 93759,
+      "duplicate_of": null
+    },
+    {
+      "file": "proof/GRC Proof-of-Work/Portfolio Projects/Project 2_ AI Governance Operating System _ NIST AI RMF \u00b7 ISO-IEC 42001 \u00b7 Generative AI Governance/P02_AI_Governance.xlsx",
+      "sha256": "b7c9f1ce925a47b182a6c4cca57d24ce170f6c941db05e3fe19e18eeab1127a2",
+      "bytes": 13299,
+      "duplicate_of": null
+    },
+    {
+      "file": "projects/Portfolio Projects/GRC_AI_Governance_Production_Portfolio_Binder.pdf",
+      "sha256": "eeac77a944d5d99bcb00c2df80aa8146339a145ea96979223961eb6300e7313a",
+      "bytes": 547527,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/GRC_AI_Governance_Production_Portfolio_Binder.pdf"
+    },
+    {
+      "file": "projects/Portfolio Projects/GRC_AI_Governance_Production_Portfolio_Binder.docx",
+      "sha256": "3ab51f8e2d7a8ce79a0c794ce0623be37096f1c10174d94e0873c868d04804a8",
+      "bytes": 47757,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/GRC_AI_Governance_Production_Portfolio_Binder.docx"
+    },
+    {
+      "file": "projects/Portfolio Projects/GRC_AI_Governance_10_Project_Evidence_Workbook.xlsx",
+      "sha256": "ae039b2c398587912421c5f1d84cfcaf2b78a4040bba0f6bf0f01a1c53c28af1",
+      "bytes": 47400,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/GRC_AI_Governance_10_Project_Evidence_Workbook.xlsx"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 8_ Enterprise Security Questionnaire & Procurement Triage Automation/P08_Procurement_QA.xlsx",
+      "sha256": "07b1acf6ca371641a4a4b8c6d2d68f71c73b51af2d63c74c0fc4ec9e9aeeee9c",
+      "bytes": 13743,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 8_ Enterprise Security Questionnaire & Procurement Triage Automation/P08_Procurement_QA.xlsx"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 8_ Enterprise Security Questionnaire & Procurement Triage Automation/08_Procurement_Security_Triage.pdf",
+      "sha256": "ad6f84384c7bf0340618190a6343b2dbf3d528d8ae46926ed4b078c4d0003833",
+      "bytes": 132634,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 8_ Enterprise Security Questionnaire & Procurement Triage Automation/08_Procurement_Security_Triage.pdf"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 10_ Continuous Control Monitoring, Audit Operations & Remediation System/P10_Audit_Ops.pdf",
+      "sha256": "ab8a25178efa584e9c82e6825a8c4ae3a4355b130f45ea7f51a21c84cc3d08a7",
+      "bytes": 119611,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 10_ Continuous Control Monitoring, Audit Operations & Remediation System/P10_Audit_Ops.pdf"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 10_ Continuous Control Monitoring, Audit Operations & Remediation System/10_Continuous_Audit_Operations.md",
+      "sha256": "d59f636f87e2d76511b73f62d20a3507512f12d11b617389a9126b4a77948689",
+      "bytes": 2988,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 10_ Continuous Control Monitoring, Audit Operations & Remediation System/10_Continuous_Audit_Operations.md"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 10_ Continuous Control Monitoring, Audit Operations & Remediation System/10_Continuous_Audit_Operations.pdf",
+      "sha256": "4e1deab44c84c794d6a9058acc3215d4d86b1048623ed64318aa15a41d2303ee",
+      "bytes": 115844,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 10_ Continuous Control Monitoring, Audit Operations & Remediation System/10_Continuous_Audit_Operations.pdf"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 10_ Continuous Control Monitoring, Audit Operations & Remediation System/P10_Audit_Ops.xlsx",
+      "sha256": "ec729adba75fa0f564c5b9924f3da2145ea050ab2f5e8d51c9d9984b9e5a1c5a",
+      "bytes": 11538,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 10_ Continuous Control Monitoring, Audit Operations & Remediation System/P10_Audit_Ops.xlsx"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 7_ Enterprise Shadow AI, Prompt DLP & AI Data-Egress Governance/07_Shadow_AI_Prompt_DLP.pdf",
+      "sha256": "9cf7de1e0ee588c987f42f34ce2e458bc9b8e79e4dedebfdeff171e6bd159b3a",
+      "bytes": 141816,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 7_ Enterprise Shadow AI, Prompt DLP & AI Data-Egress Governance/07_Shadow_AI_Prompt_DLP.pdf"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 7_ Enterprise Shadow AI, Prompt DLP & AI Data-Egress Governance/P07_Shadow_AI.xlsx",
+      "sha256": "b7e0f3cccc515e2a81d9a7a8b496acc283a41672d46a7e4852522285242cf023",
+      "bytes": 11693,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 7_ Enterprise Shadow AI, Prompt DLP & AI Data-Egress Governance/P07_Shadow_AI.xlsx"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 6_ EU AI Act Article 50 Transparency & Synthetic Content Governance System/06_AI_Transparency_Article50.pdf",
+      "sha256": "7dca4b735dd08c6accf7a853c37aeec2dccb2d098bb7012d7e44c4b691237539",
+      "bytes": 101457,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 6_ EU AI Act Article 50 Transparency & Synthetic Content Governance System/06_AI_Transparency_Article50.pdf"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 6_ EU AI Act Article 50 Transparency & Synthetic Content Governance System/P06_AI_Transparency.xlsx",
+      "sha256": "57f1dc1a1100f3bf49d66cd95113054758c7b2fab58313e94f12da6cd1da18ae",
+      "bytes": 12088,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 6_ EU AI Act Article 50 Transparency & Synthetic Content Governance System/P06_AI_Transparency.xlsx"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 4_ SOC 2 + ISO-IEC 27001 Control-to-Evidence & Audit Readiness System/P04_Control_Evidence.xlsx",
+      "sha256": "d0754387b952e36a398f68ec7a5782513d54a531f0ca67e8741f924975be7fc0",
+      "bytes": 12255,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 4_ SOC 2 + ISO-IEC 27001 Control-to-Evidence & Audit Readiness System/P04_Control_Evidence.xlsx"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 4_ SOC 2 + ISO-IEC 27001 Control-to-Evidence & Audit Readiness System/04_SOC2_ISO27001_Control_Evidence.pdf",
+      "sha256": "094fd7db14b4e6945512c53f467fdbbab15ab49c9f08f55e423c6771adce5607",
+      "bytes": 130516,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 4_ SOC 2 + ISO-IEC 27001 Control-to-Evidence & Audit Readiness System/04_SOC2_ISO27001_Control_Evidence.pdf"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 3_ Enterprise Third-Party Risk & AI Subprocessor Decision Engine _ TPRM \u00b7 Vendor Risk \u00b7 GDPR Article 28/P03_Vendor_Questions.xlsx",
+      "sha256": "dd7e9819fd504d512411f22f19f5c0ab5479184ca31bbe9dfc39bceaf73e5378",
+      "bytes": 11413,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 3_ Enterprise Third-Party Risk & AI Subprocessor Decision Engine _ TPRM \u00b7 Vendor Risk \u00b7 GDPR Article 28/P03_Vendor_Questions.xlsx"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 3_ Enterprise Third-Party Risk & AI Subprocessor Decision Engine _ TPRM \u00b7 Vendor Risk \u00b7 GDPR Article 28/03_TPRM_AI_Subprocessor_Engine.pdf",
+      "sha256": "78f507dd2c16620d3c9620027767f3b24505acf06ae8c4d31cd9e2c609453310",
+      "bytes": 110705,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 3_ Enterprise Third-Party Risk & AI Subprocessor Decision Engine _ TPRM \u00b7 Vendor Risk \u00b7 GDPR Article 28/03_TPRM_AI_Subprocessor_Engine.pdf"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 3_ Enterprise Third-Party Risk & AI Subprocessor Decision Engine _ TPRM \u00b7 Vendor Risk \u00b7 GDPR Article 28/P03_TPRM.xlsx",
+      "sha256": "4d9d922912fd1531f02f328a7fb86bc474ae71b2a30ae7b7701b92e92212d5cb",
+      "bytes": 12345,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 3_ Enterprise Third-Party Risk & AI Subprocessor Decision Engine _ TPRM \u00b7 Vendor Risk \u00b7 GDPR Article 28/P03_TPRM.xlsx"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 5_ Executive Technology Risk, KRI & Board Decision System/05_Executive_Technology_Risk.pdf",
+      "sha256": "f9e7191f9c13f9ce705e2eebbd5160d9f44960adbffc61468f61616c41a3f260",
+      "bytes": 103011,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 5_ Executive Technology Risk, KRI & Board Decision System/05_Executive_Technology_Risk.pdf"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 5_ Executive Technology Risk, KRI & Board Decision System/P05_Executive_Risk.xlsx",
+      "sha256": "3eaafcfa3885e02d1f08d618b9029d5fa6ac8df32b2d6f289fa235c6878ab966",
+      "bytes": 16164,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 5_ Executive Technology Risk, KRI & Board Decision System/P05_Executive_Risk.xlsx"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 1_ Enterprise Trust & Customer Assurance Architecture _ SOC 2 \u00b7 ISO 27001 \u00b7 GDPR \u00b7 AI Governance/P01_Trust_Readiness.xlsx",
+      "sha256": "91ed5ffda8be5fb7e62d16495d4a2acc966deed97667898d7a1df2d7407f6f38",
+      "bytes": 11670,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 1_ Enterprise Trust & Customer Assurance Architecture _ SOC 2 \u00b7 ISO 27001 \u00b7 GDPR \u00b7 AI Governance/P01_Trust_Readiness.xlsx"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 1_ Enterprise Trust & Customer Assurance Architecture _ SOC 2 \u00b7 ISO 27001 \u00b7 GDPR \u00b7 AI Governance/01_Enterprise_Trust_Customer_Assurance.pdf",
+      "sha256": "4f289103d60e5c462a54436ae711e7e800c202476c3b4c34654c2468eb51109d",
+      "bytes": 221496,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 1_ Enterprise Trust & Customer Assurance Architecture _ SOC 2 \u00b7 ISO 27001 \u00b7 GDPR \u00b7 AI Governance/01_Enterprise_Trust_Customer_Assurance.pdf"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 9_ GDPR Article 28 DPA & Subprocessor Governance Engine/09_GDPR_Article28_DPA_Engine.pdf",
+      "sha256": "3d01ae3fe374b80fbe6fb9292e301cdb0f46c691fe15ea88038db37870ad4cd0",
+      "bytes": 108107,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 9_ GDPR Article 28 DPA & Subprocessor Governance Engine/09_GDPR_Article28_DPA_Engine.pdf"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 9_ GDPR Article 28 DPA & Subprocessor Governance Engine/P09_Article28.xlsx",
+      "sha256": "97060256de04f40cf2f44186d8794cf153f9fb453108c4133e48dfe96f188d6b",
+      "bytes": 11475,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 9_ GDPR Article 28 DPA & Subprocessor Governance Engine/P09_Article28.xlsx"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 2_ AI Governance Operating System _ NIST AI RMF \u00b7 ISO-IEC 42001 \u00b7 Generative AI Governance/02_AI_Governance_Operating_System.pdf",
+      "sha256": "92ba5361c83275a9622050140bccc72786b0ddd46efac98fca26b1ee6df7658c",
+      "bytes": 93759,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 2_ AI Governance Operating System _ NIST AI RMF \u00b7 ISO-IEC 42001 \u00b7 Generative AI Governance/02_AI_Governance_Operating_System.pdf"
+    },
+    {
+      "file": "projects/Portfolio Projects/Project 2_ AI Governance Operating System _ NIST AI RMF \u00b7 ISO-IEC 42001 \u00b7 Generative AI Governance/P02_AI_Governance.xlsx",
+      "sha256": "b7c9f1ce925a47b182a6c4cca57d24ce170f6c941db05e3fe19e18eeab1127a2",
+      "bytes": 13299,
+      "duplicate_of": "proof/GRC Proof-of-Work/Portfolio Projects/Project 2_ AI Governance Operating System _ NIST AI RMF \u00b7 ISO-IEC 42001 \u00b7 Generative AI Governance/P02_AI_Governance.xlsx"
+    }
+  ]
+}

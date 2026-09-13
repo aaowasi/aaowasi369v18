@@ -1,0 +1,16 @@
+id,statement,category,likelihood,impact,inherent,residual,appetite,owner,kri,threshold,treatment,status,basis
+R-001,Critical SaaS vendor outage causes prolonged customer-facing disruption.,Availability,3,5,15,8,<=8,CTO,Critical service downtime minutes/month,>120,Mitigate,Monitor,modeled
+R-002,Privileged account compromise enables unauthorized sensitive-system access.,Security,3,5,15,7,<=6,CISO,Privileged accounts without phishing-resistant MFA,>0,Mitigate,Open,modeled
+R-003,Sensitive customer data is disclosed through an unapproved generative-AI tool.,AI/Data Loss,4,5,20,12,<=6,CISO,Shadow-AI events with confidential data,Any confirmed,Mitigate,Open,modeled
+R-004,Tier 1 subprocessor breach affects customer personal data.,Third Party,3,5,15,10,<=8,GRC,Tier 1 vendors overdue for review,>30 days,Mitigate/Transfer,Monitor,modeled
+R-005,EU-facing AI feature misses applicable Article 50 transparency controls.,Regulatory/AI,3,4,12,8,<=6,Legal/AI Gov,EU AI features without assessment,>0,Mitigate,Open,modeled
+R-006,Questionnaire answers overstate certification/control status.,Customer Assurance,3,4,12,6,<=6,GRC,Answers lacking current evidence,Any high-priority,Mitigate,Monitor,modeled
+R-007,Critical vulnerability remains open beyond SLA and is exploited.,Vulnerability,3,5,15,10,<=6,CISO/Eng,Critical vulnerabilities overdue,>0,Mitigate,Open,modeled
+R-008,Customer data cannot be deleted within contract/privacy commitments.,Privacy,3,4,12,8,<=6,Privacy/Eng,Deletion requests over SLA,Any,Mitigate,Monitor,modeled
+R-009,AI output causes material harm because users treat it as authoritative.,AI Reliability,3,5,15,10,<=8,Product/AI Gov,High-severity AI quality incidents,>1/quarter,Mitigate,Monitor,modeled
+R-010,Logging gaps prevent timely security investigation.,Detection,3,4,12,8,<=6,Security,Critical systems without required logs,>0,Mitigate,Open,modeled
+R-011,Audit finds evidence gaps because recurring collection is manual/late.,Compliance Ops,4,3,12,8,<=6,GRC,Evidence items overdue,>5%,Mitigate,Open,modeled
+R-012,Source code/secrets are exposed through developer AI assistants or public repos.,Engineering/AI,3,5,15,10,<=6,Eng/Security,Secret exposure incidents,Any,Mitigate,Open,modeled
+R-013,Vendor contract lacks required processor/subprocessor obligations.,Privacy/Contract,2,5,10,6,<=5,Legal/Privacy,Tier 1 processors without signed DPA,Any,Avoid/Mitigate,Monitor,modeled
+R-014,Security claims become stale after architecture/provider changes.,Governance,4,3,12,7,<=6,GRC/Product,Trust statements not reviewed after material change,Any,Mitigate,Monitor,modeled
+R-015,AI provider/model change alters risk without governance review.,AI Change,4,4,16,9,<=6,AI Governance,Production AI changes without approved review,Any,Mitigate,Open,modeled

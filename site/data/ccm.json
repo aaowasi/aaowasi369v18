@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "mode": "demo",
+  "generated_at": "2026-09-13T13:14:04.385992Z",
+  "source_commit": "local",
+  "checks": [
+    {
+      "id": "IAM-ROOT",
+      "title": "Root identity safeguards",
+      "mappings": [
+        "SOC2:CC6.1",
+        "ISO27001:2022:A.5.15",
+        "ISO27001:2022:A.8.5"
+      ],
+      "status": "fail",
+      "checked_at": "2026-09-13T13:14:04.385890Z",
+      "observed_at": "2026-09-13T00:00:00Z",
+      "findings": [
+        "Root access keys exist"
+      ],
+      "scope": "AWS account summary: root MFA and access keys only",
+      "evidence_sha256": "8596c955110391b2481d639554377e7f4bcdf5058ba2cc600970790be91a06d3"
+    },
+    {
+      "id": "VULN-OPEN",
+      "title": "High and critical dependency alerts",
+      "mappings": [
+        "SOC2:CC7.1",
+        "ISO27001:2022:A.8.8"
+      ],
+      "status": "fail",
+      "checked_at": "2026-09-13T13:14:04.385976Z",
+      "observed_at": "2026-09-13T00:00:00Z",
+      "evidence_sha256": "3b453fcd435945c1a0fc3334aac1102175eabd2dac8db092f339a00aa7f0ea9d",
+      "scope": "Open Dependabot alerts in the configured repository",
+      "findings": [
+        "1 high or critical alerts require triage"
+      ]
+    }
+  ],
+  "disclosure": "Technical test results, not an audit opinion or compliance certification."
+}
