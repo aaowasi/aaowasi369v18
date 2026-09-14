@@ -19,6 +19,8 @@ def utcnow():
     return datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
 
 def parse_time(value):
+    if not isinstance(value, str):
+        raise ValueError('Timestamp must be a string')
     result = datetime.fromisoformat(value.replace('Z', '+00:00'))
     if result.tzinfo is None:
         raise ValueError('Evidence timestamps must include a timezone')
@@ -34,7 +36,8 @@ def atomic_json(path, data):
     os.replace(tmp, path)
 
 def read_json(path):
-    raw = Path(path).read_bytes()
+    with Path(path).open('rb') as stream:
+        raw = stream.read(MAX_BYTES + 1)
     if len(raw) > MAX_BYTES:
         raise ValueError('Evidence exceeds size limit')
     return json.loads(raw)

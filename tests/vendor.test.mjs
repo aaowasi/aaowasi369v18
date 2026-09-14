@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {evaluateVendor} from '../site/assets/vendor.js';
+const now=new Date('2026-09-14T12:00:00Z');
+const good={name:'Test vendor',critical_service:true,personal_data:true,dpa_signed:true,subprocessors_authorized:true,training_opt_out:true,security_evidence_date:'2026-09-14'};
+test('Complete evidence routes to a human reviewer',()=>{const r=evaluateVendor(good,now);assert.equal(r.decision,'ready_for_human_review');assert.equal(r.score,40);assert.equal(r.human_approval_required,true);});
+test('Contract blocker overrides score',()=>{assert.equal(evaluateVendor({...good,dpa_signed:false},now).decision,'hold');});
+test('Unknown fields require information',()=>{assert.equal(evaluateVendor({...good,personal_data:null},now).decision,'hold');});
+test('Evidence window rejects invalid and future dates',()=>{for(const date of ['2026-02-30','2026-09-15','2025-09-13',''])assert.equal(evaluateVendor({...good,security_evidence_date:date},now).decision,'hold');});
+test('Exactly 365 days is accepted',()=>assert.equal(evaluateVendor({...good,security_evidence_date:'2025-09-14'},now).decision,'ready_for_human_review'));

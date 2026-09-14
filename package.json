@@ -1,8 +1,15 @@
 {
   "name": "grc-ai-governance-engine",
-  "version": "20.0.0",
+  "version": "21.0.0",
   "private": true,
   "type": "module",
-  "scripts": {"build": "node scripts/build.mjs", "start": "python3 -m http.server 4173 --directory dist --bind 127.0.0.1", "check": "node scripts/check.mjs"},
-  "engines": {"node": ">=22"}
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "python3 -m http.server 4173 --directory dist --bind 127.0.0.1",
+    "check": "node scripts/check.mjs",
+    "test": "node --test tests/vendor.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
 }
