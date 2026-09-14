@@ -7,7 +7,7 @@
     "build": "node scripts/build.mjs",
     "start": "python3 -m http.server 4173 --directory dist --bind 127.0.0.1",
     "check": "node scripts/check.mjs",
-    "test": "node --test tests/vendor.test.mjs"
+    "test": "node --test tests/*.test.mjs"
   },
   "engines": {
     "node": ">=22"

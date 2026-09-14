@@ -17,6 +17,19 @@ async def main():
             if result.isError:
                 raise RuntimeError('MCP query failed')
             print('MCP risk query passed')
+            from datetime import datetime, timezone
+            calls = [
+                ('evaluate_vendor_security', {'vendor': {'name': 'Protocol test',
+                  'critical_service': True, 'personal_data': True, 'dpa_signed': False,
+                  'subprocessors_authorized': True, 'training_opt_out': True,
+                  'security_evidence_date': datetime.now(timezone.utc).date().isoformat()}}),
+                ('screen_prompt', {'text': 'Public protocol test', 'approved_channel': True}),
+                ('query_control_results', {})]
+            for name, arguments in calls:
+                response = await session.call_tool(name, arguments)
+                if response.isError:
+                    raise RuntimeError(name + ' failed')
+                print(name + ': protocol call passed')
 
 if __name__ == '__main__':
     asyncio.run(main())
