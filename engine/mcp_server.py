@@ -11,11 +11,11 @@ mcp = FastMCP('AAO governance engine')
 class VendorInput(BaseModel):
     model_config = ConfigDict(extra='forbid', strict=True)
     name: str = Field(min_length=1, max_length=120)
-    critical_service: bool
-    personal_data: bool
-    dpa_signed: bool
-    subprocessors_authorized: bool
-    training_opt_out: bool
+    critical_service: bool | None
+    personal_data: bool | None
+    dpa_signed: bool | None
+    subprocessors_authorized: bool | None
+    training_opt_out: bool | None
     security_evidence_date: str = Field(max_length=32)
 
 @mcp.tool()

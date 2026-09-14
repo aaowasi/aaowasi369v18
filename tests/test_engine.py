@@ -53,3 +53,39 @@ class EngineTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+class CollectorFailureTests(unittest.TestCase):
+    def test_null_timestamp_is_unknown(self):
+        self.assertEqual(assess_iam({'observed_at':None})['status'], 'unknown')
+
+    def test_complete_population_required(self):
+        with patch('engine.ingest.get_github', return_value=[{}]*100):
+            with self.assertRaises(ValueError):
+                collect_alerts('owner/repo','token')
+
+    def test_permission_denied_stays_unknown(self):
+        import tempfile
+        from pathlib import Path
+        from urllib.error import HTTPError
+        from engine.ingest import run
+        with tempfile.TemporaryDirectory() as folder:
+            with patch.dict('os.environ', {'GRC_GITHUB_TOKEN':'unit-test'}):
+                with patch('engine.ingest.collect_alerts', side_effect=HTTPError('https://api.github.com',403,'Denied',{},None)):
+                    result=run('live','owner/repo',output=Path(folder)/'ccm.json')
+                    self.assertTrue(all(c['status']=='unknown' for c in result['checks']))
+
+    def test_retry_is_bounded(self):
+        from urllib.error import HTTPError
+        from engine.ingest import get_github
+        from unittest.mock import Mock
+        opener=Mock(side_effect=HTTPError('https://api.github.com',429,'Limit',{'Retry-After':'999'},None))
+        with patch('engine.ingest.time.sleep') as sleep:
+            with self.assertRaises(HTTPError):get_github('/repos/owner/repo/dependabot/alerts','unit-test',opener=opener)
+            self.assertEqual(opener.call_count,3)
+            self.assertEqual([c.args[0] for c in sleep.call_args_list],[10,10])
+
+    def test_invalid_vendor_boolean_rejected(self):
+        with self.assertRaises(ValueError):evaluate_vendor({'name':'Test','critical_service':'false'})
+
+    def test_unknown_vendor_never_passes(self):
+        self.assertEqual(evaluate_vendor({'name':'Test'})['decision'],'hold')

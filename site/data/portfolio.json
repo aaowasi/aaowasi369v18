@@ -17,7 +17,8 @@
       "threshold": ">120",
       "treatment": "Mitigate",
       "status": "Monitor",
-      "basis": "modeled"
+      "basis": "modeled",
+      "key_controls": "DR; backups; vendor BCP; multi-region design"
     },
     {
       "id": "R-002",
@@ -33,7 +34,8 @@
       "threshold": ">0",
       "treatment": "Mitigate",
       "status": "Open",
-      "basis": "modeled"
+      "basis": "modeled",
+      "key_controls": "MFA; PAM; least privilege; reviews; logging"
     },
     {
       "id": "R-003",
@@ -49,7 +51,8 @@
       "threshold": "Any confirmed",
       "treatment": "Mitigate",
       "status": "Open",
-      "basis": "modeled"
+      "basis": "modeled",
+      "key_controls": "Approved AI list; DLP; CASB; prompt policy; training"
     },
     {
       "id": "R-004",
@@ -65,7 +68,8 @@
       "threshold": ">30 days",
       "treatment": "Mitigate/Transfer",
       "status": "Monitor",
-      "basis": "modeled"
+      "basis": "modeled",
+      "key_controls": "TPRM; DPA; monitoring; incident clauses"
     },
     {
       "id": "R-005",
@@ -81,7 +85,8 @@
       "threshold": ">0",
       "treatment": "Mitigate",
       "status": "Open",
-      "basis": "modeled"
+      "basis": "modeled",
+      "key_controls": "AI inventory; Article 50 assessment; release gate"
     },
     {
       "id": "R-006",
@@ -97,7 +102,8 @@
       "threshold": "Any high-priority",
       "treatment": "Mitigate",
       "status": "Monitor",
-      "basis": "modeled"
+      "basis": "modeled",
+      "key_controls": "Approved answer library; evidence links; GRC review"
     },
     {
       "id": "R-007",
@@ -113,7 +119,8 @@
       "threshold": ">0",
       "treatment": "Mitigate",
       "status": "Open",
-      "basis": "modeled"
+      "basis": "modeled",
+      "key_controls": "Scanning; SLA; escalation; pen tests"
     },
     {
       "id": "R-008",
@@ -129,7 +136,8 @@
       "threshold": "Any",
       "treatment": "Mitigate",
       "status": "Monitor",
-      "basis": "modeled"
+      "basis": "modeled",
+      "key_controls": "Retention schedule; deletion workflow; subprocessor clauses"
     },
     {
       "id": "R-009",
@@ -145,7 +153,8 @@
       "threshold": ">1/quarter",
       "treatment": "Mitigate",
       "status": "Monitor",
-      "basis": "modeled"
+      "basis": "modeled",
+      "key_controls": "Human review; citations; evaluations; escalation"
     },
     {
       "id": "R-010",
@@ -161,7 +170,8 @@
       "threshold": ">0",
       "treatment": "Mitigate",
       "status": "Open",
-      "basis": "modeled"
+      "basis": "modeled",
+      "key_controls": "Log inventory; SIEM coverage; retention"
     },
     {
       "id": "R-011",
@@ -177,7 +187,8 @@
       "threshold": ">5%",
       "treatment": "Mitigate",
       "status": "Open",
-      "basis": "modeled"
+      "basis": "modeled",
+      "key_controls": "Evidence calendar; owners; reminders; QA"
     },
     {
       "id": "R-012",
@@ -193,7 +204,8 @@
       "threshold": "Any",
       "treatment": "Mitigate",
       "status": "Open",
-      "basis": "modeled"
+      "basis": "modeled",
+      "key_controls": "Secret scanning; approved AI; repo policy; DLP"
     },
     {
       "id": "R-013",
@@ -209,7 +221,8 @@
       "threshold": "Any",
       "treatment": "Avoid/Mitigate",
       "status": "Monitor",
-      "basis": "modeled"
+      "basis": "modeled",
+      "key_controls": "DPA checklist; legal review; flow-down clauses"
     },
     {
       "id": "R-014",
@@ -225,7 +238,8 @@
       "threshold": "Any",
       "treatment": "Mitigate",
       "status": "Monitor",
-      "basis": "modeled"
+      "basis": "modeled",
+      "key_controls": "Change trigger; quarterly answer review"
     },
     {
       "id": "R-015",
@@ -241,7 +255,8 @@
       "threshold": "Any",
       "treatment": "Mitigate",
       "status": "Open",
-      "basis": "modeled"
+      "basis": "modeled",
+      "key_controls": "AI change gate; provider register; regression evaluation"
     }
   ],
   "projects": [

@@ -26,5 +26,19 @@ jobs:
       - run: python scripts/install_opa.py
       - run: .tools/opa test policies -v
       - run: python -m engine.mcp_client
+      - run: npm test
       - run: npm run build
       - run: npm run check
+      - name: Install browser validation dependencies
+        run: npm install --no-save playwright@1.58.2
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - name: Validate desktop and mobile interactions
+        run: |
+          python3 -m http.server 4173 --directory dist --bind 127.0.0.1 > /tmp/aao-http.log 2>&1 &
+          node scripts/browser-check.mjs
+          node scripts/lighthouse.mjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: browser-verification
+          path: docs/verification/

@@ -1,34 +1,32 @@
-# Validation record
+# Validation and delivery record
 
-This record reports executed checks separately from deployment prerequisites. It does not certify the system for a client environment.
+Verified 14 September 2026.
 
 | Check | Result |
 |---|---|
-| Python behavior tests | Passed: missing/malformed evidence, stale/future observations, root-key finding, pagination, proper mappings, human vendor review and prompt minimization |
-| OPA 1.20.2 | Seven policy tests passed |
-| OSCAL 1.1.3 catalog | Validated against the bundled official NIST schema |
-| OSCAL 1.1.3 component definition | Validated against the bundled official NIST schema; local control IDs resolve |
-| MCP | Actual stdio initialize, list-tools and risk-query round trip passed |
-| Static build | Public-only `dist/` generated |
-| HTML link checks | Thirteen pages passed local-link and viewport checks |
-| Copy hygiene | Low formulaic-text density; no claim of human authorship is made by this check |
-| Raw evidence | Excluded from the public build; original AAO image copied without modification |
+| Python behavior tests | 15 passed |
+| JavaScript tests | 6 passed, including Python/JavaScript vendor parity across 729 cases |
+| OPA 1.20.2 | 7 policy tests passed in GitHub Actions |
+| OSCAL 1.1.3 | Catalog and component definition validated against bundled official schemas |
+| MCP | Stdio initialization and risk, vendor, prompt and control tool calls passed |
+| Public build | Build and local-link checks passed for 13 HTML pages |
+| Responsive browser checks | 54 viewport/theme combinations across Chromium, Firefox and WebKit passed; no document overflow |
+| Interaction checks | Risk filtering, residual exploration, domain navigation, vendor decisions, reset and JSON export passed across three engines |
+| Lighthouse | Report generation succeeded in CI; scores are in the run artifact and are not asserted here |
+| Brand asset | Supplied PNG preserved byte-for-byte |
 
-## Pending environment checks
+Executed engineering checks: [GitHub Actions run 34792993491](https://github.com/aaowasi/aaowasi369v18/actions/runs/34792993491), commit `6a293ca8d5d65f25ad968cc5fd2ec682217c8162`. Browser and Lighthouse reports are retained with the run artifacts. Later documentation-only changes do not change tested runtime code.
 
-- Physical iOS/Android, Firefox and WebKit device checks have not been executed.
-- Docker Compose services and the optional CISO Assistant installation have not been run here.
-- No authorized live AWS source or Dependabot read token was supplied to the collector. Packaged technical results use explicit demonstration fixtures.
-- Cloudflare review deployment succeeded. Chromium browser checks passed at a 1363 × 936 viewport: dashboard loading, six-result heatmap filter, reset, vendor hold and human-review states, and enabled history navigation. No horizontal document overflow was observed. Other device sizes remain acceptance checks, not claimed results.
-- GitHub immutable release publication requires a reviewed public evidence selection and verification of repository immutability settings.
-- The new preferred GitHub repository name is a deployment instruction until actually created. Existing-repository changes are reported separately.
-- LinkedIn was signed out. Profile text is prepared in `LINKEDIN.md`; no remote profile edit is claimed.
-- Figma reported a Starter plan with a View seat. No editable Figma artifact is claimed.
+## Delivery
 
-The MCP dependency emitted a Pydantic settings forward-reference warning during initialization; protocol operations succeeded. Treat dependency upgrades as reviewed changes and rerun the round-trip test. The public frontend does not load any Python/MCP dependency.
+- Production portfolio: https://aao-executive-portfolio-12rw3qvui-aaowasi.vercel.app/
+- Source review: https://github.com/aaowasi/aaowasi369v18/pull/2
+- The production page rendered and its latest source link was verified in the browser.
+- The original Cloudflare URL remains unchanged. Upload the companion Cloudflare ZIP using the execution guide to update that project; no Cloudflare deployment credentials were available.
+- LinkedIn copy is in `docs/LINKEDIN.md`. No profile changes were made because authenticated profile-editing access was unavailable.
 
-## Remote CI and preview
+## Operational boundaries
 
-GitHub Actions verification passed for commit `3bc0843c401962324ab5ec9aca3ca9200841c372`, including nine Python tests, OPA tests, OSCAL validation, MCP round trip and frontend build/link checks. Cloudflare deployed the review branch successfully to https://2fcfdbed.aaowasi369v18.pages.dev.
+The interactive portfolio evaluates supplied scenarios and session inputs. It does not claim connected AWS telemetry, client outcomes, certification, a measured 70% saving, or production integrations with commercial GRC platforms. Live collection requires authorized source credentials and configuration described in the execution guide. Residual matrix coordinates absent from the original evidence remain unasserted; session exploration does not overwrite evidence.
 
-The retained local OPA executable was incomplete after session resumption and failed its known digest. It was not accepted as a valid test binary. The fresh remote CI runner passed the policy tests.
+Physical iOS/Android hardware, screen-reader sessions, field performance and every browser/OS combination have not been tested. Browser-engine checks use automated viewports. Docker Compose was specified but not executed in this environment. The original logo is a 1.8 MB raster asset; an authorized vector variant would reduce transfer size. Historical evidence has not been publicly released. Release immutability must be enabled and verified before describing a GitHub archive as immutable. No Figma file or external task/message was created.

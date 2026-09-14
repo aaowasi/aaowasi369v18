@@ -1,182 +1,24 @@
-'use strict';
-const $ = (selector) => document.querySelector(selector);
-const make = (tag, text, className) => {
-  const node = document.createElement(tag);
-  if (text !== undefined) node.textContent = String(text);
-  if (className) node.className = className;
-  return node;
-};
-
-document.querySelectorAll('[data-history]').forEach(bar => {
-  bar.hidden = false;
-  const back = bar.querySelector('[data-back]');
-  const forward = bar.querySelector('[data-forward]');
-  back.addEventListener('click', () => {
-    if (history.length > 1) history.back();
-    else bar.querySelector('.history-status').textContent = 'No earlier page. Use Home to return to the portfolio.';
-  });
-  forward.addEventListener('click', () => history.forward());
-  const sync = () => {
-    if (window.navigation) {
-      back.disabled = !window.navigation.canGoBack;
-      forward.disabled = !window.navigation.canGoForward;
-    }
-  };
-  sync();
-  window.addEventListener('pageshow', sync);
-  window.addEventListener('popstate', sync);
-  window.addEventListener('hashchange', sync);
-  window.navigation?.addEventListener('currententrychange', sync);
-});
-
-// Progressive enhancement: content remains visible if JS or observation fails.
-if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('reveal-in');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {threshold: .08});
-  document.querySelectorAll('.section-intro, .project, .about-copy').forEach(el => observer.observe(el));
+import {fields,evaluateVendor} from './vendor.js';
+const $=s=>document.querySelector(s);const make=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=String(text);if(cls)n.className=cls;return n;};
+document.querySelectorAll('[data-history]').forEach(bar=>{bar.hidden=false;bar.querySelector('[data-back]').onclick=()=>history.back();bar.querySelector('[data-forward]').onclick=()=>history.forward();const sync=()=>{if(window.navigation){bar.querySelector('[data-back]').disabled=!navigation.canGoBack;bar.querySelector('[data-forward]').disabled=!navigation.canGoForward;}};sync();window.addEventListener('popstate',sync);window.navigation?.addEventListener('currententrychange',sync);});
+let portfolio,cell=null,lastReport=null,busy=false,lastVendor=null;const residualPositions=new Map();let group='assurance';const groups={assurance:[1,4,8,9],ai:[2,3,6,7],monitoring:[5,10]};
+const categories={'Availability':'Third-Party & Supply Chain','Third Party':'Third-Party & Supply Chain','Security':'Infrastructure Security','Vulnerability':'Infrastructure Security','Detection':'Infrastructure Security','AI/Data Loss':'AI Reliability & Data Loss','AI Reliability':'AI Reliability & Data Loss','Engineering/AI':'AI Reliability & Data Loss','AI Change':'AI Reliability & Data Loss'};
+function category(r){return categories[r.category]||'Regulatory & Privacy Compliance';}
+function position(r){return $('#risk-mode').value==='inherent'?[r.likelihood,r.impact]:residualPositions.get(r.id)||null;}
+function rows(){return portfolio.risks.filter(r=>(!$('#category').value||category(r)===$('#category').value)&&(!cell||position(r)?.every((v,i)=>v===cell[i])));}
+function drawRisks(){const filtered=rows();$('#filter-status').textContent=`${filtered.length} of ${portfolio.risks.length} scenarios${cell?' · selected matrix cell':''}`;const target=$('#risk-list');target.replaceChildren();if(!filtered.length)target.append(make('p','No scenarios match. Clear filters to return to the full register.','small'));
+ for(const r of filtered){const d=make('details',undefined,'risk-entry'),s=make('summary');s.append(make('span',r.id,'risk-id'),make('p',r.statement));d.append(s);const body=make('div',undefined,'risk-detail'),dl=make('dl');for(const [k,v]of [['Inherent score',r.inherent],['Residual score',r.residual],['Appetite',r.appetite],['Scenario owner',r.owner||'Unassigned'],['Treatment',r.treatment],['Baseline state',r.status]]){const g=make('div');g.append(make('dt',k),make('dd',v));dl.append(g);}body.append(dl,make('p',`Key controls: ${r.key_controls||'Review with owner'}.`),make('p',`KRI: ${r.kri}. Escalation threshold: ${r.threshold}.`),make('p','Next action: review treatment evidence with the scenario owner before accepting residual exposure.'),make('p',`Source: supplied risk workbook · ${portfolio.baseline_date}.`,'small'));
+ const edit=make('details',undefined,'scenario-edit');edit.append(make('summary','Explore residual likelihood & impact'));const selects=[];for(const label of ['Likelihood','Impact']){const l=make('label',label),select=make('select');select.setAttribute('aria-label',`${r.id} residual ${label.toLowerCase()}`);for(let i=1;i<=5;i++){const o=make('option',i);o.value=i;select.append(o);}select.value=residualPositions.get(r.id)?.[selects.length]||1;l.append(select);edit.append(l);selects.push(select);}const apply=make('button','Apply scenario position');apply.type='button';apply.onclick=()=>{residualPositions.set(r.id,selects.map(s=>Number(s.value)));$('#risk-mode').value='residual';cell=null;drawMatrix();drawRisks();};edit.append(make('p','Session-only exploration. The recorded residual score above remains unchanged.','small'),apply);body.append(edit);d.append(body);target.append(d);}
 }
-
-let portfolio;
-let cell = null;
-let busy = false;
-let lastReport = null;
-function filteredRisks() {
-  const category = $('#category').value;
-  return portfolio.risks.filter(r => (!category || r.category === category) &&
-    (!cell || (r.likelihood === cell[0] && r.impact === cell[1])));
-}
-function drawRisks() {
-  const rows = filteredRisks();
-  $('#filter-status').textContent = `${rows.length} of ${portfolio.risks.length} scenarios${cell ? ` · likelihood ${cell[0]}, impact ${cell[1]}` : ''}`;
-  const target = $('#risk-list'); target.replaceChildren();
-  if (!rows.length) target.append(make('p', 'No scenarios match these filters. Choose another cell or show all risks.', 'small'));
-  rows.forEach(r => {
-    const detail = make('details', undefined, 'risk-entry');
-    const summary = make('summary');
-    summary.append(make('span', r.id, 'risk-id'), make('p', r.statement));
-    detail.append(summary);
-    const body = make('div', undefined, 'risk-detail');
-    const dl = make('dl');
-    [['Inherent score', r.inherent], ['Modeled residual', r.residual], ['Appetite', r.appetite], ['Owner role', r.owner]].forEach(([key, value]) => {
-      const group = make('div'); group.append(make('dt', key), make('dd', value)); dl.append(group);
-    });
-    body.append(dl, make('p', `KRI: ${r.kri}. Escalation threshold: ${r.threshold}.`), make('p', `Treatment: ${r.treatment}. Baseline status: ${r.status}.`));
-    detail.append(body); target.append(detail);
-  });
-  $('#heatmap').querySelectorAll('button').forEach(button => {
-    button.setAttribute('aria-pressed', String(Boolean(cell && Number(button.dataset.likelihood) === cell[0] && Number(button.dataset.impact) === cell[1])));
-  });
-}
-function drawDashboard() {
-  $('#risk-count').textContent = portfolio.risks.length;
-  // Appetite values are explicit <= integer thresholds from the source workbook.
-  $('#above-count').textContent = portfolio.risks.filter(r => {
-    const match = /^<=\s*(\d+)$/.exec(r.appetite); return match && r.residual > Number(match[1]);
-  }).length;
-  $('#control-count').textContent = portfolio.counts.control_domains;
-  $('#ai-count').textContent = portfolio.counts.ai_use_cases;
-  [...new Set(portfolio.risks.map(r => r.category))].sort().forEach(c => {
-    const option = make('option', c); option.value = c; $('#category').append(option);
-  });
-  for (let likelihood = 5; likelihood >= 1; likelihood--) {
-    for (let impact = 1; impact <= 5; impact++) {
-      const count = portfolio.risks.filter(r => r.likelihood === likelihood && r.impact === impact).length;
-      const level = Math.ceil(likelihood * impact / 5);
-      const button = make('button', count || '·', `level-${level}`);
-      button.type = 'button'; button.dataset.likelihood = likelihood; button.dataset.impact = impact;
-      button.setAttribute('aria-label', `Likelihood ${likelihood}, impact ${impact}: ${count} scenarios`);
-      button.setAttribute('aria-pressed', 'false');
-      button.addEventListener('click', () => {cell = [likelihood, impact]; drawRisks();});
-      $('#heatmap').append(button);
-    }
-  }
-  $('#category').addEventListener('change', drawRisks);
-  $('#reset-filter').addEventListener('click', () => {cell = null; $('#category').value = ''; drawRisks();});
-  drawRisks(); $('#dashboard').hidden = false;
-  const requests = (portfolio.audit_requests || []).filter(r => ['In Review', 'Exception'].includes(r.status));
-  requests.forEach(request => {
-    const due = request.remediation_due || request.due;
-    const days = Math.floor((Date.now() - new Date(due + 'T23:59:59Z').getTime()) / 86400000);
-    const row = make('article', undefined, 'check');
-    row.append(make('p', `${request.id} · ${request.control}`), make('span', days > 0 ? `${days}d past due` : 'Within date', 'small'), make('p', `${request.owner} · ${request.status} · ${request.exception || request.conclusion || 'Review pending'}`, 'small'));
-    $('#audit-clock').append(row);
-  });
-}
-function drawChecks(report) {
-  const target = $('#checks'); target.replaceChildren();
-  const generated = new Date(report.generated_at);
-  const age = Date.now() - generated.getTime();
-  const staleRun = !Number.isFinite(age) || age > 86400000 || age < -300000;
-  $('#ccm-status').textContent = `${report.mode === 'live' ? 'API collection' : 'Demonstration fixtures'} · Run ${Number.isFinite(generated.getTime()) ? generated.toLocaleString() : 'date unavailable'}${staleRun ? ' · STALE RUN' : ''}`;
-  if (!report.checks.length) target.append(make('p', 'No control results are available.', 'small'));
-  report.checks.forEach(check => {
-    const row = make('article', undefined, 'check');
-    const observedAge = Date.now() - new Date(check.observed_at).getTime();
-    let status = check.status;
-    if (status !== 'unknown' && (!Number.isFinite(observedAge) || observedAge > 86400000 || observedAge < -300000)) status = 'stale';
-    const title = make('div'); title.append(make('h4', check.title), make('p', check.mappings.join(' · '), 'small'));
-    const evidence = make('div');
-    evidence.append(make('p', check.findings.join('. ') || 'No findings in the stated test scope.'), make('p', check.scope, 'small'));
-    if (check.observed_at) evidence.append(make('p', `Observed: ${check.observed_at}`, 'small'));
-    row.append(title, make('span', status, 'check-state'), evidence); target.append(row);
-  });
-}
-async function fetchJSON(url) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 10000);
-  try {
-    const response = await fetch(url, {cache: 'no-store', signal: controller.signal});
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return await response.json();
-  } finally {clearTimeout(timer);}
-}
-async function refreshChecks() {
-  if (busy) return;
-  busy = true; $('#refresh-data').disabled = true;
-  try {
-    const report = await fetchJSON('data/ccm.json');
-    if (report.schema_version !== 1 || !['demo', 'live'].includes(report.mode) || !Array.isArray(report.checks)) throw new Error('Invalid report schema');
-    drawChecks(report); lastReport = report;
-  } catch {
-    if (lastReport) drawChecks(lastReport);
-    $('#ccm-status').textContent = 'Refresh failed. Any results below are the previous snapshot; freshness has not been confirmed.';
-  } finally {busy = false; $('#refresh-data').disabled = false;}
-}
-async function initialize() {
-  if (!$('#dashboard')) return;
-  try {
-    portfolio = await fetchJSON('data/portfolio.json');
-    if (portfolio.schema_version !== 1 || !Array.isArray(portfolio.risks)) throw new Error('Invalid register');
-    drawDashboard();
-    $('#data-status').textContent = `Historical model dated ${portfolio.baseline_date}. Counts and scores come from the supplied workbook; they are not client outcomes.`;
-    $('#refresh-data').hidden = false;
-    $('#refresh-data').addEventListener('click', refreshChecks);
-    await refreshChecks();
-    setInterval(() => {if (!document.hidden) refreshChecks();}, 60000);
-  } catch {
-    $('#data-status').textContent = 'The register could not be loaded. Reload this page or use Download risk data. If viewing files locally, start the included web server.';
-  }
-}
+function drawMatrix(){const map=$('#heatmap');map.replaceChildren();const eligible=portfolio.risks.filter(r=>!$('#category').value||category(r)===$('#category').value);for(let l=5;l>=1;l--)for(let i=1;i<=5;i++){const count=eligible.filter(r=>position(r)?.[0]===l&&position(r)?.[1]===i).length;const b=make('button',count||'·',`level-${Math.ceil(l*i/5)}`);b.type='button';b.setAttribute('aria-label',`Likelihood ${l}, impact ${i}: ${count} scenarios`);b.setAttribute('aria-pressed',String(!!cell&&cell[0]===l&&cell[1]===i));b.onclick=()=>{cell=[l,i];drawMatrix();drawRisks();};map.append(b);}const residual=$('#risk-mode').value==='residual';$('#matrix-note').textContent=residual?`${eligible.filter(r=>!position(r)).length} scenarios have no recorded residual coordinates. Open a risk to explore a session-only position. Original residual scores remain in the register.`:'Select a cell to inspect its risks. Darker-to-lighter shading shows increasing likelihood × impact.';}
+const questions={assurance:'Can customer-facing assurance claims be traced to current evidence?', 'ai-governance':'Who owns each AI use case, and what triggers a new review?', 'vendor-risk':'Which onboarding conditions need resolution before approval?',controls:'Which control objective does this evidence actually support?','executive-risk':'Which exposures exceed appetite and need an accountable decision?',transparency:'Which transparency obligations apply to this AI system and role?','shadow-ai':'Does the submitted prompt contain a detectable sensitive-data pattern?',procurement:'Can a procurement response be reused with current supporting evidence?',privacy:'Are processor terms and subprocessor permissions evidenced?',ccm:'Which controls need fresh evidence, remediation, or retesting?'};
+const capabilities={assurance:'Structured assurance records connect statements to evidence and review requirements.','ai-governance':'The AI inventory records purpose, accountability and governance context. Versioned policy checks evaluate transparency inputs.','vendor-risk':'Local vendor rules return blockers, a priority score and the next review step.',controls:'OSCAL catalogs and component definitions connect technical checks to scoped control objectives.','executive-risk':'The register calculates appetite breaches and supports category filtering and scenario exploration.',transparency:'Rego tests evaluate configured disclosure and marking conditions for provider and deployer roles.','shadow-ai':'Local pattern screening returns detection counts without persisting the submitted prompt.',procurement:'Reviewed response records preserve the basis for assurance answers.',privacy:'Structured processor records make contractual review conditions inspectable.',ccm:'Python collectors normalize IAM and dependency-alert results with timestamps and evidence hashes.'};
+function selectDomain(slug,push=false){const p=portfolio.projects.find(p=>p.slug===slug)||portfolio.projects[0];group=Object.keys(groups).find(g=>groups[g].includes(p.id));document.querySelectorAll('[data-group]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.group===group)));$('#domain-select').replaceChildren();$('#domain-menu').replaceChildren();for(const item of portfolio.projects.filter(x=>groups[group].includes(x.id))){const o=make('option',item.title);o.value=item.slug;$('#domain-select').append(o);const b=make('button',`${String(item.id).padStart(2,'0')} / ${item.title}`);b.type='button';b.setAttribute('aria-current',String(item.slug===p.slug));b.onclick=()=>selectDomain(item.slug,true);$('#domain-menu').append(b);}$('#domain-select').value=p.slug;const target=$('#domain-detail');target.replaceChildren(make('span',`DOMAIN ${String(p.id).padStart(2,'0')} / ${p.subtitle}`,'section-number'),make('h3',p.title),make('p',questions[p.slug]),make('p',capabilities[p.slug]));const dl=make('dl');for(const[k,v]of [['Evidence base',`${p.record_count} source records · ${p.baseline_sheet}`],['Next operational step','Connect organizational evidence, assign reviewers, and validate the control scope.']]){const d=make('div');d.append(make('dt',k),make('dd',v));dl.append(d);}const link=make('a','Inspect domain evidence →');link.href=`work/${p.slug}/`;target.append(dl,link);if(push){history.pushState(null,'',`#domain=${p.slug}`);} }
+function syncDomain(){const slug=location.hash.startsWith('#domain=')?location.hash.slice(8):null;if(slug){selectDomain(slug);$('#domains').scrollIntoView({behavior:'instant',block:'start'});}}
+function drawChecks(report){const target=$('#checks');target.replaceChildren();$('#ccm-status').textContent=`${report.mode==='live'?'Latest API collection':'Scenario evidence'} · ${new Date(report.generated_at).toLocaleString()}`;if(!report.checks.length)target.append(make('p','No control results have been published.','small'));for(const c of report.checks){const age=Date.now()-new Date(c.observed_at).getTime();let label=c.status==='pass'?'Healthy':c.status==='fail'?'Action required':'Not connected';if(c.status!=='unknown'&&(!Number.isFinite(age)||age>86400000||age< -300000))label='Evidence overdue';const row=make('article',undefined,'check'),title=make('div'),info=make('div');title.append(make('h4',c.title),make('p',c.mappings.join(' · '),'small'));info.append(make('p',c.findings.join('. ')||'No findings within the tested scope.'),make('p',label==='Evidence overdue'?'Next action: collect current evidence before relying on this result.':label==='Action required'?'Next action: review the finding, remediate, and retest.':label==='Not connected'?'Next action: configure authorized collection.':'Next action: retain evidence and continue scheduled review.','small'));const details=make('details',undefined,'small');details.append(make('summary','Evidence details'),make('p',c.scope),make('p',`Observed: ${c.observed_at||'Not available'} · Technical result: ${c.status}`));info.append(details);row.append(title,make('span',label,'check-state'),info);target.append(row);}}
+async function fetchJSON(url){const c=new AbortController(),timer=setTimeout(()=>c.abort(),10000);try{const r=await fetch(url,{cache:'no-store',signal:c.signal});if(!r.ok)throw Error('HTTP '+r.status);return await r.json();}finally{clearTimeout(timer);}}
+async function refresh(){if(busy)return;busy=true;$('#refresh-data').disabled=true;try{const r=await fetchJSON('data/ccm.json');if(r.schema_version!==1||!['demo','live'].includes(r.mode)||!Array.isArray(r.checks)||!r.checks.every(c=>typeof c.title==='string'&&Array.isArray(c.mappings)&&Array.isArray(c.findings)&&typeof c.scope==='string'))throw Error('Invalid report');drawChecks(r);lastReport=r;}catch{if(lastReport)drawChecks(lastReport);$('#ccm-status').textContent='Check unavailable. Previous evidence is retained with its original timestamps. Retry refresh.';}finally{busy=false;$('#refresh-data').disabled=false;}}
+async function initialize(){if(!$('#dashboard'))return;try{portfolio=await fetchJSON('data/portfolio.json');if(portfolio.schema_version!==1||!Array.isArray(portfolio.risks)||!Array.isArray(portfolio.projects)||!portfolio.risks.every(r=>Number.isInteger(r.likelihood)&&r.likelihood>=1&&r.likelihood<=5&&Number.isInteger(r.impact)&&r.impact>=1&&r.impact<=5&&typeof r.statement==='string'))throw Error('Invalid register');$('#risk-count').textContent=portfolio.risks.length;$('#above-count').textContent=portfolio.risks.filter(r=>r.residual>Number(/^<=\s*(\d+)$/.exec(r.appetite)?.[1]??Infinity)).length;$('#domain-count').textContent=portfolio.projects.length;$('#ai-count').textContent=portfolio.counts.ai_use_cases;for(const c of [...new Set(portfolio.risks.map(category))].sort()){const o=make('option',c);o.value=c;$('#category').append(o);}$('#category').onchange=()=>{cell=null;drawMatrix();drawRisks();};$('#risk-mode').onchange=()=>{cell=null;drawMatrix();drawRisks();};$('#reset-filter').onclick=()=>{cell=null;$('#category').value='';drawMatrix();drawRisks();};drawMatrix();drawRisks();$('#dashboard').hidden=false;$('#data-status').textContent=`Source baseline: ${portfolio.baseline_date} · Counts computed from the register.`;$('#refresh-data').onclick=refresh;selectDomain(portfolio.projects[0].slug);$('#domain-select').onchange=e=>selectDomain(e.target.value,true);document.querySelectorAll('[data-group]').forEach(b=>b.onclick=()=>selectDomain(portfolio.projects.find(p=>p.id===groups[b.dataset.group][0]).slug,true));const step=d=>{const i=portfolio.projects.findIndex(p=>p.slug===$('#domain-select').value);selectDomain(portfolio.projects[(i+d+portfolio.projects.length)%portfolio.projects.length].slug,true);};$('#previous-domain').onclick=()=>step(-1);$('#next-domain').onclick=()=>step(1);addEventListener('hashchange',syncDomain);addEventListener('popstate',()=>{if(location.hash.startsWith('#domain='))syncDomain();else selectDomain(portfolio.projects[0].slug);});syncDomain();await refresh();}catch{$('#data-status').textContent='The register could not be loaded. Reload the page or download the CSV. Use the supplied web server when viewing locally.';}}
 initialize();
-
-if ($('#vendor-form')) {
-  $('#evaluate-vendor').disabled = false;
-  $('#vendor-form').addEventListener('submit', event => {
-    event.preventDefault();
-    const values = new FormData(event.currentTarget);
-    const reasons = [];
-    if (values.has('personal') && !values.has('dpa')) reasons.push('Signed processor agreement is missing.');
-    if (values.has('personal') && !values.has('subprocessors')) reasons.push('Subprocessor authorization needs review.');
-    if (!values.has('training')) reasons.push('Training use is unresolved for the intended data.');
-    if (!values.has('evidence')) reasons.push('Current security evidence has not been independently reviewed.');
-    const tier = values.has('critical') ? 1 : values.has('personal') ? 2 : 3;
-    $('#vendor-decision').textContent = `${reasons.length ? 'Hold for evidence' : 'Ready for human review'} · Tier ${tier}`;
-    $('#vendor-reasons').replaceChildren(...(reasons.length ? reasons : ['No intake blockers detected. Verify scope, evidence and contract terms before approval.']).map(r => make('li', r)));
-  });
-}
+function download(data,name){const u=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));const a=make('a');a.href=u;a.download=name;a.hidden=true;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);}
+if($('#vendor-form')){$('#vendor-form').elements.name.addEventListener('input',e=>e.target.setCustomValidity(''));for(const[k,label]of fields){const l=make('label',label,'field'),s=make('select');s.name=k;s.setAttribute('aria-label',label);for(const[v,t]of [['unknown','Unknown'],['true','Yes'],['false','No']]){const o=make('option',t);o.value=v;s.append(o);}l.append(s);$('#vendor-fields').append(l);}$('#vendor-form').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),v={name:f.get('name').trim(),security_evidence_date:f.get('security_evidence_date')};if(!v.name){const field=e.target.elements.name;field.setCustomValidity('Enter an assessment name.');field.reportValidity();return;}for(const[k]of fields)v[k]=f.get(k)==='unknown'?null:f.get(k)==='true';lastVendor=evaluateVendor(v);$('#vendor-decision').textContent=lastVendor.decision==='hold'?'Hold for resolution.':'Ready for review.';$('#vendor-score').textContent=`${lastVendor.score} / 100`;$('#vendor-summary').textContent=`Intake priority score · Tier ${lastVendor.tier} · Rules ${lastVendor.rule_version}. Higher scores indicate more review exposure.`;$('#vendor-reasons').replaceChildren(...(lastVendor.reasons.length?lastVendor.reasons:['No intake blockers detected. Verify evidence and document the approval decision.']).map(t=>make('li',t)));$('#export-vendor').disabled=false;$('#print-vendor').disabled=false;};$('#vendor-form').onreset=()=>{lastVendor=null;$('#vendor-decision').textContent='Start with the evidence.';$('#vendor-score').textContent='';$('#vendor-summary').textContent='Complete the intake to see the recommendation, reasons, and next review action.';$('#vendor-reasons').replaceChildren();$('#export-vendor').disabled=true;$('#print-vendor').disabled=true;};$('#export-vendor').onclick=()=>lastVendor&&download(lastVendor,'vendor-decision.json');$('#print-vendor').onclick=()=>{if(!lastVendor)return;$('#print-report').replaceChildren(make('h1','Vendor decision record'),make('p',lastVendor.inputs.name),make('pre',JSON.stringify(lastVendor,null,2)));window.print();};}
